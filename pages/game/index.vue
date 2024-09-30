@@ -131,7 +131,6 @@ function openOfferModal() {
 // Game constants
 const NUM_BOXES = 26
 const NUM_ROUNDS = 5
-const BANKER_OFFER_ROUND = 3
 
 const inputBox = ref(0)
 
@@ -217,9 +216,6 @@ function updateInstructions() {
     gameState.value.gameInstructions = 'Please select your box to start the game.'
   } else if (gameState.value.currentRound < BANKER_OFFER_ROUND) {
     gameState.value.gameInstructions = `Round ${gameState.value.currentRound}: A random box will be opened.`;
-  } else if (gameState.value.currentRound === BANKER_OFFER_ROUND) {
-    gameState.value.gameInstructions = 'Banker offers a deal. Accept or reject it.';
-    openOfferModal();  // Open the banker offer modal
   } else if (gameState.value.currentRound >= NUM_ROUNDS) {
     gameState.value.gameInstructions = 'Final round: Remaining boxes will be revealed.';
   }
@@ -285,6 +281,7 @@ function nextRound() {
     }
 
     makeBankerOffer(); // Make the banker offer after opening the boxes
+    openOfferModal();
     gameState.value.currentRound += 1; // Move to the next round
     updateInstructions(); // Update instructions for the current round
   } else {
