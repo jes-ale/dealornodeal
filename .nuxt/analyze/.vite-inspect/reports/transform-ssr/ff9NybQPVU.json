@@ -1,0 +1,317 @@
+{
+  "resolvedId": "/home/jes/dealornodeal_web/assets/global.css",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "@font-face {\n  font-family: 'Sans';\n  src: url('ComicShannsMonoNerdFontMono-Regular.otf') format('opentype'),\n    url('ComicShannsMonoNerdFontMono-Regular.woff') format('woff'),\n    url('ComicShannsMonoNerdFontMono-Regular.woff2') format('woff2');\n}\n\n\n/* scrollbar.css */\nhtml {\n  scrollbar-width: thin;\n  /* Firefox */\n  scrollbar-color: rgba(233, 30, 99, 0.6) rgba(255, 255, 255, 0.1);\n  /* Firefox */\n}\n\nbody::-webkit-scrollbar {\n  width: 8px;\n  height: 8px;\n}\n\nbody::-webkit-scrollbar-track {\n  background: rgba(255, 255, 255, 0.1);\n  /* Almost transparent background */\n  border-radius: 10px;\n}\n\nbody::-webkit-scrollbar-thumb {\n  background-color: rgba(233, 30, 99, 0.6);\n  /* Semi-transparent pink */\n  border-radius: 10px;\n  border: 2px solid rgba(255, 255, 255, 0.3);\n  /* Slightly transparent border */\n  transition: background-color 0.3s ease, border 0.3s ease;\n}\n\nbody::-webkit-scrollbar-thumb:hover {\n  background-color: rgba(233, 30, 99, 0.8);\n  /* Darker pink on hover */\n  border: 2px solid rgba(255, 255, 255, 0.5);\n  /* Less transparent border on hover */\n}\n\nbody::-webkit-scrollbar-thumb:active {\n  background-color: rgba(233, 30, 99, 1);\n  /* Solid pink on active */\n  border: 2px solid rgba(255, 255, 255, 0.7);\n  /* Almost opaque border on active */\n}\n",
+      "start": 1727667733380,
+      "end": 1727667733622,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667733622,
+      "end": 1727667733622,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667733622,
+      "end": 1727667733622,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667733622,
+      "end": 1727667733622,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667733622,
+      "end": 1727667733622,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667733622,
+      "end": 1727667733622,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667733622,
+      "end": 1727667733622,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667733622,
+      "end": 1727667733622,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667733622,
+      "end": 1727667733622,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1727667733622,
+      "end": 1727667733622,
+      "order": "pre"
+    },
+    {
+      "name": "server-only-component-transform",
+      "start": 1727667733622,
+      "end": 1727667733622,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": "@font-face{font-family:Sans;src:url(__VITE_ASSET__ClXG1MBY__) format(\"opentype\"),url(ComicShannsMonoNerdFontMono-Regular.woff) format(\"woff\"),url(ComicShannsMonoNerdFontMono-Regular.woff2) format(\"woff2\")}html{scrollbar-color:rgba(233,30,99,.6) hsla(0,0%,100%,.1);scrollbar-width:thin}body::-webkit-scrollbar{height:8px;width:8px}body::-webkit-scrollbar-track{background:hsla(0,0%,100%,.1);border-radius:10px}body::-webkit-scrollbar-thumb{background-color:rgba(233,30,99,.6);border:2px solid hsla(0,0%,100%,.3);border-radius:10px;-webkit-transition:background-color .3s ease,border .3s ease;transition:background-color .3s ease,border .3s ease}body::-webkit-scrollbar-thumb:hover{background-color:rgba(233,30,99,.8);border:2px solid hsla(0,0%,100%,.5)}body::-webkit-scrollbar-thumb:active{background-color:#e91e63;border:2px solid hsla(0,0%,100%,.7)}",
+      "start": 1727667733622,
+      "end": 1727667734145,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "/home/jes/dealornodeal_web/assets/global.css",
+        "mappings": "AAAA,WACE,gBAAmB,CACnB,gLAGF,CAIA,KAGE,qDAAgE,CAFhE,oBAIF,CAEA,wBAEE,UAAW,CADX,SAEF,CAEA,8BACE,6BAAoC,CAEpC,kBACF,CAEA,8BACE,mCAAwC,CAGxC,mCAA0C,CAD1C,kBAAmB,CAGnB,4DAAwD,CAAxD,oDACF,CAEA,oCACE,mCAAwC,CAExC,mCAEF,CAEA,qCACE,wBAAsC,CAEtC,mCAEF",
+        "names": [],
+        "sources": [
+          "/home/jes/dealornodeal_web/assets/global.css"
+        ],
+        "sourcesContent": [
+          "@font-face {\n  font-family: 'Sans';\n  src: url('ComicShannsMonoNerdFontMono-Regular.otf') format('opentype'),\n    url('ComicShannsMonoNerdFontMono-Regular.woff') format('woff'),\n    url('ComicShannsMonoNerdFontMono-Regular.woff2') format('woff2');\n}\n\n\n/* scrollbar.css */\nhtml {\n  scrollbar-width: thin;\n  /* Firefox */\n  scrollbar-color: rgba(233, 30, 99, 0.6) rgba(255, 255, 255, 0.1);\n  /* Firefox */\n}\n\nbody::-webkit-scrollbar {\n  width: 8px;\n  height: 8px;\n}\n\nbody::-webkit-scrollbar-track {\n  background: rgba(255, 255, 255, 0.1);\n  /* Almost transparent background */\n  border-radius: 10px;\n}\n\nbody::-webkit-scrollbar-thumb {\n  background-color: rgba(233, 30, 99, 0.6);\n  /* Semi-transparent pink */\n  border-radius: 10px;\n  border: 2px solid rgba(255, 255, 255, 0.3);\n  /* Slightly transparent border */\n  transition: background-color 0.3s ease, border 0.3s ease;\n}\n\nbody::-webkit-scrollbar-thumb:hover {\n  background-color: rgba(233, 30, 99, 0.8);\n  /* Darker pink on hover */\n  border: 2px solid rgba(255, 255, 255, 0.5);\n  /* Less transparent border on hover */\n}\n\nbody::-webkit-scrollbar-thumb:active {\n  background-color: rgba(233, 30, 99, 1);\n  /* Solid pink on active */\n  border: 2px solid rgba(255, 255, 255, 0.7);\n  /* Almost opaque border on active */\n}\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1727667734145,
+      "end": 1727667734145,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,342 @@
+{
+  "resolvedId": "/home/jes/dealornodeal_web/components/Fields/BooleanField.vue?vue&type=style&index=0&scoped=f0f52164&lang.css",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.toggle-checkbox {\n    left: 0;\n    transition: transform 0.2s ease;\n}\n\n.toggle-checkbox:checked {\n    transform: translateX(1rem);\n    /* Move to the opposite end */\n}\n\n.toggle-label {\n    transition: background-color 0.2s ease;\n}\n\n.toggle-checkbox:checked+.toggle-label {\n    background-color: #4F46E5;\n    /* Change to your desired active color */\n}\n",
+      "start": 1727667736100,
+      "end": 1727667736100,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/jes/dealornodeal_web/components/Fields/BooleanField.vue"
+        ],
+        "names": [],
+        "mappings": ";AAwCA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;IACb,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC;IACP,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;AACnC;;AAEA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;IACrB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;IAC3B,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,EAAE,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,EAAE,CAAC;AACjC;;AAEA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;IACV,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;AAC1C;;AAEA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;IACnC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;IACzB,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC;AAC5C",
+        "file": "/home/jes/dealornodeal_web/components/Fields/BooleanField.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<script setup>\nimport { defineProps, defineEmits } from 'vue';\n\nconst props = defineProps({\n    id: {\n        type: String,\n        required: true,\n    },\n    label: {\n        type: String,\n        required: true,\n    },\n    modelValue: {\n        type: Boolean,\n        required: true,\n    },\n});\n\nconst emits = defineEmits(['update:modelValue']);\n\nconst updateValue = (event) => {\n    emits('update:modelValue', event.target.checked);\n};\n</script>\n\n<template>\n    <div class=\"p-4\">\n        <label :for=\"id\" class=\"block mb-2\">{{ label }}</label>\n        <div class=\"relative inline-block w-10 h-6 select-none transition-all duration-200 ease-in-out\">\n            <!-- Toggle switch -->\n            <input type=\"checkbox\" id=\"toggle\" :checked=\"modelValue\" @change=\"updateValue($event)\"\n                class=\"toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-transform transform translate-x-0\" />\n            <!-- Background track -->\n            <label for=\"toggle\" class=\"toggle-label block overflow-hidden h-6 rounded-full bg-gray-300\"></label>\n        </div>\n    </div>\n</template>\n\n\n<style scoped>\n.toggle-checkbox {\n    left: 0;\n    transition: transform 0.2s ease;\n}\n\n.toggle-checkbox:checked {\n    transform: translateX(1rem);\n    /* Move to the opposite end */\n}\n\n.toggle-label {\n    transition: background-color 0.2s ease;\n}\n\n.toggle-checkbox:checked+.toggle-label {\n    background-color: #4F46E5;\n    /* Change to your desired active color */\n}\n</style>\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667736100,
+      "end": 1727667736100,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667736100,
+      "end": 1727667736100,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667736100,
+      "end": 1727667736100,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667736100,
+      "end": 1727667736100,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667736100,
+      "end": 1727667736100,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667736100,
+      "end": 1727667736100,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667736100,
+      "end": 1727667736100,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667736100,
+      "end": 1727667736100,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1727667736100,
+      "end": 1727667736100,
+      "order": "pre"
+    },
+    {
+      "name": "server-only-component-transform",
+      "start": 1727667736100,
+      "end": 1727667736100,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".toggle-checkbox{left:0;transition:transform .2s ease}.toggle-checkbox:checked{transform:translateX(1rem)}.toggle-label{transition:background-color .2s ease}.toggle-checkbox:checked+.toggle-label{background-color:#4f46e5}",
+      "start": 1727667736100,
+      "end": 1727667736119,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "/home/jes/dealornodeal_web/components/Fields/BooleanField.vue",
+        "mappings": "AACA,iBACI,MAAO,CACP,6BACJ,CAEA,yBACI,0BAEJ,CAEA,cACI,oCACJ,CAEA,uCACI,wBAEJ",
+        "names": [],
+        "sources": [
+          "/home/jes/dealornodeal_web/components/Fields/BooleanField.vue"
+        ],
+        "sourcesContent": [
+          "\n.toggle-checkbox {\n    left: 0;\n    transition: transform 0.2s ease;\n}\n\n.toggle-checkbox:checked {\n    transform: translateX(1rem);\n    /* Move to the opposite end */\n}\n\n.toggle-label {\n    transition: background-color 0.2s ease;\n}\n\n.toggle-checkbox:checked+.toggle-label {\n    background-color: #4F46E5;\n    /* Change to your desired active color */\n}\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1727667736119,
+      "end": 1727667736119,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1727667736119,
+      "end": 1727667736119,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1727667736119,
+      "end": 1727667736119,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".toggle-checkbox[data-v-f0f52164]{left:0;transition:transform .2s ease}.toggle-checkbox[data-v-f0f52164]:checked{transform:translateX(1rem)}.toggle-label[data-v-f0f52164]{transition:background-color .2s ease}.toggle-checkbox:checked+.toggle-label[data-v-f0f52164]{background-color:#4f46e5}",
+      "start": 1727667736119,
+      "end": 1727667736120,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "/home/jes/dealornodeal_web/components/Fields/BooleanField.vue",
+        "mappings": "AAAA,kCAAiB,MAAM,CAAC,6BAA6B,CAAC,0CAAyB,0BAA0B,CAAC,+BAAc,oCAAoC,CAAC,wDAAuC,wBAAwB",
+        "names": [],
+        "sources": [
+          "/home/jes/dealornodeal_web/components/Fields/BooleanField.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1727667736120,
+      "end": 1727667736120,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667736120,
+      "end": 1727667736121,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667736120,
+      "end": 1727667736121,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1727667736121,
+      "end": 1727667736121,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1727667736121,
+      "end": 1727667736121,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1727667736121,
+      "end": 1727667736121,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1727667736121,
+      "end": 1727667736121,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1727667736121,
+      "end": 1727667736121,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1727667736121,
+      "end": 1727667736121,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1727667736121,
+      "end": 1727667736121,
+      "order": "normal"
+    }
+  ]
+}

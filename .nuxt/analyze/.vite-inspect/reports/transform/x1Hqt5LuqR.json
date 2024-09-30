@@ -1,0 +1,254 @@
+{
+  "resolvedId": "/home/jes/dealornodeal_web/layouts/website.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, renderSlot as _renderSlot, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"relative flex flex-col no-scrollbar overflow-y-scroll h-screen w-screen text-black text-sm bg-neutral-100 font-sans subpixel-antialiased slashed-zero diagonal-fractions\" }\nconst _hoisted_2 = {\n  as: \"div\",\n  class: \"w-full h-full\"\n}\n\nimport { Icon } from '@iconify/vue'\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'website',\n  setup(__props) {\n\nconst { t } = useI18n()\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_Header = _resolveComponent(\"Header\")!\n\n  return (_openBlock(), _createElementBlock(\"main\", _hoisted_1, [\n    _createVNode(_component_Header, { class: \"w-screen h-auto\" }),\n    _createElementVNode(\"section\", _hoisted_2, [\n      _renderSlot(_ctx.$slots, \"default\")\n    ])\n  ]))\n}\n}\n\n})",
+      "start": 1727667730141,
+      "end": 1727667730141
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667730141,
+      "end": 1727667730141,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667730141,
+      "end": 1727667730141,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667730141,
+      "end": 1727667730141,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667730141,
+      "end": 1727667730141,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1727667730141,
+      "end": 1727667730141,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1727667730141,
+      "end": 1727667730141,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, renderSlot as _renderSlot, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"relative flex flex-col no-scrollbar overflow-y-scroll h-screen w-screen text-black text-sm bg-neutral-100 font-sans subpixel-antialiased slashed-zero diagonal-fractions\" };\nconst _hoisted_2 = {\n  as: \"div\",\n  class: \"w-full h-full\"\n};\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"website\",\n  setup(__props) {\n    const { t } = useI18n();\n    return (_ctx, _cache) => {\n      const _component_Header = _resolveComponent(\"Header\");\n      return _openBlock(), _createElementBlock(\"main\", _hoisted_1, [\n        _createVNode(_component_Header, { class: \"w-screen h-auto\" }),\n        _createElementVNode(\"section\", _hoisted_2, [\n          _renderSlot(_ctx.$slots, \"default\")\n        ])\n      ]);\n    };\n  }\n});\n",
+      "start": 1727667730141,
+      "end": 1727667730179,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/jes/dealornodeal_web/layouts/website.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, renderSlot as _renderSlot, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"relative flex flex-col no-scrollbar overflow-y-scroll h-screen w-screen text-black text-sm bg-neutral-100 font-sans subpixel-antialiased slashed-zero diagonal-fractions\" }\nconst _hoisted_2 = {\n  as: \"div\",\n  class: \"w-full h-full\"\n}\n\nimport { Icon } from '@iconify/vue'\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'website',\n  setup(__props) {\n\nconst { t } = useI18n()\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_Header = _resolveComponent(\"Header\")!\n\n  return (_openBlock(), _createElementBlock(\"main\", _hoisted_1, [\n    _createVNode(_component_Header, { class: \"w-screen h-auto\" }),\n    _createElementVNode(\"section\", _hoisted_2, [\n      _renderSlot(_ctx.$slots, \"default\")\n    ])\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,oBAAoB,mBAAmB,eAAe,cAAc,cAAc,aAAa,sBAAsB,qBAAqB,aAAa,YAAY,sBAAsB,2BAA2B;AAE7N,MAAM,aAAa,EAAE,OAAO,2KAA2K;AACvM,MAAM,aAAa;AAAA,EACjB,IAAI;AAAA,EACJ,OAAO;AACT;AAIA,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,SAAS;AAEjB,UAAM,EAAE,EAAE,IAAI,QAAQ;AAEtB,WAAO,CAAC,MAAU,WAAgB;AAChC,YAAM,oBAAoB,kBAAkB,QAAQ;AAEpD,aAAQ,WAAW,GAAG,oBAAoB,QAAQ,YAAY;AAAA,QAC5D,aAAa,mBAAmB,EAAE,OAAO,kBAAkB,CAAC;AAAA,QAC5D,oBAAoB,WAAW,YAAY;AAAA,UACzC,YAAY,KAAK,QAAQ,SAAS;AAAA,QACpC,CAAC;AAAA,MACH,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1727667730179,
+      "end": 1727667730179,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1727667730179,
+      "end": 1727667730179,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1727667730179,
+      "end": 1727667730179,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1727667730179,
+      "end": 1727667730179,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667730179,
+      "end": 1727667730179,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667730179,
+      "end": 1727667730179,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1727667730179,
+      "end": 1727667730179,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1727667730180,
+      "end": 1727667730180,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667730180,
+      "end": 1727667730180,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1727667730180,
+      "end": 1727667730180,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1727667730180,
+      "end": 1727667730180,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1727667730181,
+      "end": 1727667730181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1727667730181,
+      "end": 1727667730181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1727667730181,
+      "end": 1727667730181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1727667730181,
+      "end": 1727667730181,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1727667730181,
+      "end": 1727667730181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1727667730181,
+      "end": 1727667730181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1727667730181,
+      "end": 1727667730181,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667730181,
+      "end": 1727667730181,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667730181,
+      "end": 1727667730182,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667730182,
+      "end": 1727667730182,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { useI18n } from '/home/jes/dealornodeal_web/node_modules/vue-i18n/dist/vue-i18n.mjs';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, renderSlot as _renderSlot, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"relative flex flex-col no-scrollbar overflow-y-scroll h-screen w-screen text-black text-sm bg-neutral-100 font-sans subpixel-antialiased slashed-zero diagonal-fractions\" };\nconst _hoisted_2 = {\n  as: \"div\",\n  class: \"w-full h-full\"\n};\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"website\",\n  setup(__props) {\n    const { t } = useI18n();\n    return (_ctx, _cache) => {\n      const _component_Header = _resolveComponent(\"Header\");\n      return _openBlock(), _createElementBlock(\"main\", _hoisted_1, [\n        _createVNode(_component_Header, { class: \"w-screen h-auto\" }),\n        _createElementVNode(\"section\", _hoisted_2, [\n          _renderSlot(_ctx.$slots, \"default\")\n        ])\n      ]);\n    };\n  }\n});\n",
+      "start": 1727667730182,
+      "end": 1727667730186,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnO,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CA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"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667730186,
+      "end": 1727667730186,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1727667730187,
+      "end": 1727667730187,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1727667730187,
+      "end": 1727667730187,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1727667730188,
+      "end": 1727667730188,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1727667730188,
+      "end": 1727667730188,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1727667730188,
+      "end": 1727667730188,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1727667730188,
+      "end": 1727667730188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1727667730188,
+      "end": 1727667730188,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+{
+  "resolvedId": "/home/jes/dealornodeal_web/components/Views/FormView.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'\nimport TextField from '~/components/Fields/TextField.vue'\nimport NumberField from '~/components/Fields/NumberField.vue'\nimport DatetimeField from '~/components/Fields/DatetimeField.vue'\nimport BooleanField from '~/components/Fields/BooleanField.vue'\nimport SelectionField from '~/components/Fields/SelectionField.vue'\nimport Many2ManyField from '~/components/Fields/Many2ManyField.vue'\nimport Many2OneField from '~/components/Fields/Many2OneField.vue'\nimport One2ManyField from '~/components/Fields/One2ManyField.vue'\nimport ActionButton from '~/components/Blocks/ActionButton.vue'\nimport { Icon } from '@iconify/vue'\n\nconst { pb } = usePocketBase()\n\nconst props = defineProps({\n  title: {\n    type: String,\n    default: 'Generic Form',\n  },\n  fields: {\n    type: Array,\n    required: true,\n  },\n  initialData: {\n    type: Object,\n    default: () => ({}),\n  },\n  collectionName: {\n    type: String,\n    required: true,\n  },\n  onSubmit: {\n    type: Function,\n    required: true,\n  },\n})\n\nconst formData = ref({})\n\nconst getFieldComponent = (type) => {\n  switch (type) {\n    case 'text':\n      return TextField\n    case 'number':\n      return NumberField\n    case 'date':\n      return DatetimeField\n    case 'boolean':\n      return BooleanField\n    case 'selection':\n      return SelectionField\n    case 'many2many':\n      return Many2ManyField\n    case 'many2one':\n      return Many2OneField\n    case 'one2many':\n      return One2ManyField\n    default:\n      return TextField\n  }\n}\n\nconst handleSubmit = async () => {\n  try {\n    let response\n    if (formData.value.id) {\n      response = await pb.collection(props.collectionName).update(formData.value.id, formData.value)\n    } else {\n      response = await pb.collection(props.collectionName).create(formData.value)\n    }\n    props.onSubmit(response)\n  } catch (error) {\n    console.error('Error submitting form:', error)\n  }\n}\n\nconst handleCancel = () => {\n  console.log('Cancel clicked')\n}\n\nconst handlePrint = () => {\n  console.log('Print clicked')\n}\n\nconst isOpen = ref(false)\nwatch(props, () => {\n  console.log('props.initialData', props.initialData)\n  formData.value = { ...props.initialData }\n});\n</script>\n\n<template>\n  <div class=\"relative flex w-full h-full justify-start items-center flex-col\">\n    <!-- Button area fixed at the top -->\n    <div class=\"left-0 top-0 w-full flex space-x-2 justify-end items-center bg-transparent p-4 z-10 \">\n      <h2 class=\"text-xl\">{{ title }}</h2>\n      <ActionButton type=\"submit\" icon=\"mdi:content-save\" label=\"Submit\" @click=\"handleSubmit\" />\n      <ActionButton type=\"button\" icon=\"mdi:file-undo\" label=\"Cancel\" @click=\"handleCancel\" />\n      <ActionButton type=\"button\" icon=\"mdi:printer\" label=\"Print\" @click=\"handlePrint\" />\n      <Disclosure v-slot=\"{ open }\">\n        <DisclosureButton\n          class=\"w-16 h-16 flex flex-col items-center justify-center border border-black p-2 bg-rose-700 text-white hover:bg-rose-100 hover:text-rose-700 font-bold\">\n          <Icon icon=\"mdi:eye\" class=\"w-full h-full\" v-if=\"open\" />\n          <Icon icon=\"mdi:eye-off\" class=\"w-full h-full\" v-else />\n          <span>{{ open ? 'Hide' : 'Show' }}</span>\n        </DisclosureButton>\n        <DisclosurePanel>\n          <div class=\"flex space-x-2 transition-transform duration-300 transform\"\n            :class=\"{ 'translate-x-0': open, 'translate-x-full': !open }\">\n            <slot name=\"buttons\" />\n          </div>\n        </DisclosurePanel>\n      </Disclosure>\n    </div>\n\n    <!-- Form content with padding to avoid overlap -->\n    <form @submit.prevent=\"handleSubmit\" class=\"p-4 mb-4 space-y-4 w-full overflow-auto\">\n      <component v-for=\"(field, index) in fields\" class=\"w-full\" :is=\"getFieldComponent(field.type)\" :key=\"index\"\n        v-model=\"formData[field.name]\" :label=\"field.label\" :options=\"field.options || []\" />\n    </form>\n  </div>\n</template>\n\n<style scoped>\n/* Add custom styles for fixed button area */\n.fixed {\n  position: fixed;\n}\n</style>\n\n\n<style scoped>\n/* Add custom styles for animation */\n.transition-transform {\n  transition: transform 0.3s ease-in-out;\n}\n</style>\n",
+      "start": 1727667734801,
+      "end": 1727667735225,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667735225,
+      "end": 1727667735226,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667735225,
+      "end": 1727667735226,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667735226,
+      "end": 1727667735226,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667735226,
+      "end": 1727667735226,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667735226,
+      "end": 1727667735226,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667735226,
+      "end": 1727667735226,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667735226,
+      "end": 1727667735226,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667735226,
+      "end": 1727667735226,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1727667735226,
+      "end": 1727667735226,
+      "order": "pre"
+    },
+    {
+      "name": "server-only-component-transform",
+      "start": 1727667735226,
+      "end": 1727667735226,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1727667735226,
+      "end": 1727667735226,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1727667735226,
+      "end": 1727667735226,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1727667735226,
+      "end": 1727667735226,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1727667735226,
+      "end": 1727667735226,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/home/jes/dealornodeal_web/components/Views/FormView.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/home/jes/dealornodeal_web/components/Views/FormView.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/home/jes/dealornodeal_web/components/Views/FormView.vue?vue&type=style&index=0&scoped=b9fd3e90&lang.css\";\nimport \"/home/jes/dealornodeal_web/components/Views/FormView.vue?vue&type=style&index=1&scoped=b9fd3e90&lang.css\";\nimport { useSSRContext as __vite_useSSRContext } from \"vue\";\nconst _sfc_setup = _sfc_main.setup;\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext();\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\"components/Views/FormView.vue\");\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\n};\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-b9fd3e90\"]]);\n",
+      "start": 1727667735226,
+      "end": 1727667735362,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1727667735362,
+      "end": 1727667735362,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667735362,
+      "end": 1727667735362,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667735362,
+      "end": 1727667735362,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667735362,
+      "end": 1727667735362,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667735362,
+      "end": 1727667735363,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1727667735363,
+      "end": 1727667735363,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667735363,
+      "end": 1727667735363,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1727667735363,
+      "end": 1727667735371,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1727667735371,
+      "end": 1727667735371,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1727667735371,
+      "end": 1727667735371,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1727667735371,
+      "end": 1727667735371,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1727667735371,
+      "end": 1727667735371,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1727667735371,
+      "end": 1727667735371,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1727667735371,
+      "end": 1727667735371,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1727667735371,
+      "end": 1727667735371,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1727667735371,
+      "end": 1727667735371,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667735371,
+      "end": 1727667735371,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667735371,
+      "end": 1727667735371,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667735371,
+      "end": 1727667735372,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667735371,
+      "end": 1727667735372,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667735372,
+      "end": 1727667735372,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667735372,
+      "end": 1727667735372,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1727667735372,
+      "end": 1727667735372,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1727667735372,
+      "end": 1727667735372,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667735372,
+      "end": 1727667735372,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667735372,
+      "end": 1727667735372,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1727667735372,
+      "end": 1727667735372,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1727667735372,
+      "end": 1727667735372,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1727667735372,
+      "end": 1727667735372,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1727667735372,
+      "end": 1727667735372,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1727667735372,
+      "end": 1727667735372,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1727667735372,
+      "end": 1727667735372,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1727667735372,
+      "end": 1727667735372,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "resolvedId": "/home/jes/dealornodeal_web/components/Blocks/Avatar.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n    <div class=\"avatar\">\n        <img :src=\"avatarSrc\" :alt=\"avatarSrc\" :class=\"avatarClass\" />\n    </div>\n</template>\n\n<script setup>\nimport { ref, onMounted } from 'vue';\n\nconst props = defineProps({\n    src: {\n        type: String,\n        required: true\n    },\n    avatarClass: {\n        type: String,\n        default: 'rounded-full'\n    }\n});\n\nconst avatarSrc = ref(props.src);\n\n</script>\n\n<style scoped>\n.avatar {\n    width: 48px;\n    /* Ajusta el tamaño según tu diseño */\n    height: 48px;\n    overflow: hidden;\n}\n\n.avatar img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n}\n</style>\n",
+      "start": 1727667735151,
+      "end": 1727667735572,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667735572,
+      "end": 1727667735572,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667735572,
+      "end": 1727667735572,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667735572,
+      "end": 1727667735572,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667735572,
+      "end": 1727667735572,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667735572,
+      "end": 1727667735572,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667735572,
+      "end": 1727667735572,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667735572,
+      "end": 1727667735572,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667735572,
+      "end": 1727667735572,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1727667735572,
+      "end": 1727667735572,
+      "order": "pre"
+    },
+    {
+      "name": "server-only-component-transform",
+      "start": 1727667735572,
+      "end": 1727667735572,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1727667735572,
+      "end": 1727667735572,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1727667735572,
+      "end": 1727667735572,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1727667735572,
+      "end": 1727667735572,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1727667735572,
+      "end": 1727667735572,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\"\n\nimport { ref, onMounted } from 'vue';\n\n\nconst _sfc_main = {\n  __name: 'Avatar',\n  __ssrInlineRender: true,\n  props: {\n    src: {\n        type: String,\n        required: true\n    },\n    avatarClass: {\n        type: String,\n        default: 'rounded-full'\n    }\n},\n  setup(__props) {\n\nconst props = __props;\n\nconst avatarSrc = ref(props.src);\n\n\nreturn (_ctx, _push, _parent, _attrs) => {\n  _push(`<div${\n    _ssrRenderAttrs(_mergeProps({ class: \"avatar\" }, _attrs))\n  } data-v-22b96325><img${\n    _ssrRenderAttr(\"src\", avatarSrc.value)\n  }${\n    _ssrRenderAttr(\"alt\", avatarSrc.value)\n  } class=\"${\n    _ssrRenderClass(__props.avatarClass)\n  }\" data-v-22b96325></div>`)\n}\n}\n\n}\n\n\nimport \"/home/jes/dealornodeal_web/components/Blocks/Avatar.vue?vue&type=style&index=0&scoped=22b96325&lang.css\"\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"components/Blocks/Avatar.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-22b96325\"]])",
+      "start": 1727667735572,
+      "end": 1727667735573,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/jes/dealornodeal_web/components/Blocks/Avatar.vue"
+        ],
+        "sourcesContent": [
+          "<template>\n    <div class=\"avatar\">\n        <img :src=\"avatarSrc\" :alt=\"avatarSrc\" :class=\"avatarClass\" />\n    </div>\n</template>\n\n<script setup>\nimport { ref, onMounted } from 'vue';\n\nconst props = defineProps({\n    src: {\n        type: String,\n        required: true\n    },\n    avatarClass: {\n        type: String,\n        default: 'rounded-full'\n    }\n});\n\nconst avatarSrc = ref(props.src);\n\n</script>\n\n<style scoped>\n.avatar {\n    width: 48px;\n    /* Ajusta el tamaño según tu diseño */\n    height: 48px;\n    overflow: hidden;\n}\n\n.avatar img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n}\n</style>\n"
+        ],
+        "names": [],
+        "mappings": ";;;AAOA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrC;;;;;;;;;;;;;;;;AAFc;AAGd,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,OASZ,CAAC;AACH;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjC;;;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667735573,
+      "end": 1727667735573,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1727667735573,
+      "end": 1727667735574,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1727667735573,
+      "end": 1727667735574,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667735574,
+      "end": 1727667735574,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667735574,
+      "end": 1727667735574,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1727667735574,
+      "end": 1727667735574,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1727667735574,
+      "end": 1727667735574,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1727667735574,
+      "end": 1727667735574,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1727667735574,
+      "end": 1727667735574,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1727667735574,
+      "end": 1727667735574,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1727667735574,
+      "end": 1727667735574,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1727667735574,
+      "end": 1727667735574,
+      "order": "normal"
+    }
+  ]
+}

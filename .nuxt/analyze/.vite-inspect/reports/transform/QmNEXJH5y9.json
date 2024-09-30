@@ -1,0 +1,245 @@
+{
+  "resolvedId": "/home/jes/dealornodeal_web/components/Blocks/GameHeader.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, unref as _unref, toDisplayString as _toDisplayString, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex justify-between mb-4\" }\nconst _hoisted_2 = /*#__PURE__*/_createElementVNode(\"h1\", { class: \"text-3xl font-bold\" }, \"Deal or No Deal\", -1)\n\nimport { inject } from 'vue'\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'GameHeader',\n  setup(__props) {\n\nconst gameState = inject('gameState')\nconst startNewGame = inject('startNewGame')\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"header\", _hoisted_1, [\n    _hoisted_2,\n    _createElementVNode(\"p\", null, \"Maletin del jugador: \" + _toDisplayString(_unref(gameState).playerBox?.id), 1),\n    _createElementVNode(\"p\", null, \"Ronda: \" + _toDisplayString(_unref(gameState).currentRound), 1),\n    _createElementVNode(\"button\", {\n      class: \"bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded\",\n      onClick: _cache[0] || (_cache[0] = \n//@ts-ignore\n(...args) => (_unref(startNewGame) && _unref(startNewGame)(...args)))\n    }, \"New Game\")\n  ]))\n}\n}\n\n})",
+      "start": 1727667731073,
+      "end": 1727667731073
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667731074,
+      "end": 1727667731074,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667731074,
+      "end": 1727667731074,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667731074,
+      "end": 1727667731074,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667731074,
+      "end": 1727667731074,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1727667731074,
+      "end": 1727667731074,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1727667731074,
+      "end": 1727667731074,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, unref as _unref, toDisplayString as _toDisplayString, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"flex justify-between mb-4\" };\nconst _hoisted_2 = /* @__PURE__ */ _createElementVNode(\"h1\", { class: \"text-3xl font-bold\" }, \"Deal or No Deal\", -1);\nimport { inject } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"GameHeader\",\n  setup(__props) {\n    const gameState = inject(\"gameState\");\n    const startNewGame = inject(\"startNewGame\");\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"header\", _hoisted_1, [\n        _hoisted_2,\n        _createElementVNode(\"p\", null, \"Maletin del jugador: \" + _toDisplayString(_unref(gameState).playerBox?.id), 1),\n        _createElementVNode(\"p\", null, \"Ronda: \" + _toDisplayString(_unref(gameState).currentRound), 1),\n        _createElementVNode(\"button\", {\n          class: \"bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded\",\n          onClick: _cache[0] || (_cache[0] = //@ts-ignore\n          (...args) => _unref(startNewGame) && _unref(startNewGame)(...args))\n        }, \"New Game\")\n      ]);\n    };\n  }\n});\n",
+      "start": 1727667731074,
+      "end": 1727667731160,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/jes/dealornodeal_web/components/Blocks/GameHeader.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, unref as _unref, toDisplayString as _toDisplayString, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex justify-between mb-4\" }\nconst _hoisted_2 = /*#__PURE__*/_createElementVNode(\"h1\", { class: \"text-3xl font-bold\" }, \"Deal or No Deal\", -1)\n\nimport { inject } from 'vue'\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'GameHeader',\n  setup(__props) {\n\nconst gameState = inject('gameState')\nconst startNewGame = inject('startNewGame')\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"header\", _hoisted_1, [\n    _hoisted_2,\n    _createElementVNode(\"p\", null, \"Maletin del jugador: \" + _toDisplayString(_unref(gameState).playerBox?.id), 1),\n    _createElementVNode(\"p\", null, \"Ronda: \" + _toDisplayString(_unref(gameState).currentRound), 1),\n    _createElementVNode(\"button\", {\n      class: \"bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded\",\n      onClick: _cache[0] || (_cache[0] = \n//@ts-ignore\n(...args) => (_unref(startNewGame) && _unref(startNewGame)(...args)))\n    }, \"New Game\")\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,sBAAsB,qBAAqB,SAAS,QAAQ,mBAAmB,kBAAkB,aAAa,YAAY,sBAAsB,2BAA2B;AAEpL,MAAM,aAAa,EAAE,OAAO,4BAA4B;AACxD,MAAM,aAA0B,oCAAoB,MAAM,EAAE,OAAO,qBAAqB,GAAG,mBAAmB,EAAE;AAEhH,SAAS,cAAc;AAGvB,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,SAAS;AAEjB,UAAM,YAAY,OAAO,WAAW;AACpC,UAAM,eAAe,OAAO,cAAc;AAE1C,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,UAAU,YAAY;AAAA,QAC9D;AAAA,QACA,oBAAoB,KAAK,MAAM,0BAA0B,iBAAiB,OAAO,SAAS,EAAE,WAAW,EAAE,GAAG,CAAC;AAAA,QAC7G,oBAAoB,KAAK,MAAM,YAAY,iBAAiB,OAAO,SAAS,EAAE,YAAY,GAAG,CAAC;AAAA,QAC9F,oBAAoB,UAAU;AAAA,UAC5B,OAAO;AAAA,UACP,SAAS,OAAO,CAAC,MAAM,OAAO,CAAC;AAAA,UAErC,IAAI,SAAU,OAAO,YAAY,KAAK,OAAO,YAAY,EAAE,GAAG,IAAI;AAAA,QAC9D,GAAG,UAAU;AAAA,MACf,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1727667731160,
+      "end": 1727667731160,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1727667731160,
+      "end": 1727667731160,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1727667731160,
+      "end": 1727667731160,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1727667731160,
+      "end": 1727667731160,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667731160,
+      "end": 1727667731160,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667731160,
+      "end": 1727667731160,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1727667731160,
+      "end": 1727667731160,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1727667731160,
+      "end": 1727667731160,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667731160,
+      "end": 1727667731160,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1727667731160,
+      "end": 1727667731160,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1727667731161,
+      "end": 1727667731161,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1727667731161,
+      "end": 1727667731161,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1727667731161,
+      "end": 1727667731161,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1727667731161,
+      "end": 1727667731161,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1727667731161,
+      "end": 1727667731161,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1727667731161,
+      "end": 1727667731161,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1727667731161,
+      "end": 1727667731161,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1727667731161,
+      "end": 1727667731161,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667731161,
+      "end": 1727667731161,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667731161,
+      "end": 1727667731161,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667731161,
+      "end": 1727667731161,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1727667731161,
+      "end": 1727667731164,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667731165,
+      "end": 1727667731165,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1727667731165,
+      "end": 1727667731165,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1727667731165,
+      "end": 1727667731165,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1727667731165,
+      "end": 1727667731165,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1727667731165,
+      "end": 1727667731165,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1727667731165,
+      "end": 1727667731165,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1727667731165,
+      "end": 1727667731165,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1727667731166,
+      "end": 1727667731166,
+      "order": "normal"
+    }
+  ]
+}

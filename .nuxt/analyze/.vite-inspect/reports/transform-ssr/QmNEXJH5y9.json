@@ -1,0 +1,322 @@
+{
+  "resolvedId": "/home/jes/dealornodeal_web/components/Blocks/GameHeader.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport { inject } from 'vue'\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'GameHeader',\n  __ssrInlineRender: true,\n  setup(__props) {\n\nconst gameState = inject('gameState')\nconst startNewGame = inject('startNewGame')\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<header${\n    _ssrRenderAttrs(_mergeProps({ class: \"flex justify-between mb-4\" }, _attrs))\n  }><h1 class=\"text-3xl font-bold\">Deal or No Deal</h1><p>Maletin del jugador: ${\n    _ssrInterpolate(_unref(gameState).playerBox?.id)\n  }</p><p>Ronda: ${\n    _ssrInterpolate(_unref(gameState).currentRound)\n  }</p><button class=\"bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded\">New Game</button></header>`)\n}\n}\n\n})",
+      "start": 1727667735448,
+      "end": 1727667735448,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/jes/dealornodeal_web/components/Blocks/GameHeader.vue"
+        ],
+        "sourcesContent": [
+          "<template>\n    <header class=\"flex justify-between mb-4\">\n        <h1 class=\"text-3xl font-bold\">Deal or No Deal</h1>\n        <p>Maletin del jugador: {{ gameState.playerBox?.id }}</p>\n        <p>Ronda: {{ gameState.currentRound }}</p>\n        <button class=\"bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded\"\n            @click=\"startNewGame\">New Game</button>\n    </header>\n</template>\n\n<script setup lang=\"ts\">\nimport { inject } from 'vue'\n\nconst gameState = inject('gameState')\nconst startNewGame = inject('startNewGame')\n</script>\n"
+        ],
+        "names": [],
+        "mappings": ";;;;AAWA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5B;;;;;;AAFwB;AAGxB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667735448,
+      "end": 1727667735448,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667735448,
+      "end": 1727667735448,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667735448,
+      "end": 1727667735448,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667735448,
+      "end": 1727667735448,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667735448,
+      "end": 1727667735448,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667735448,
+      "end": 1727667735448,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667735448,
+      "end": 1727667735448,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667735448,
+      "end": 1727667735448,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1727667735448,
+      "end": 1727667735448,
+      "order": "pre"
+    },
+    {
+      "name": "server-only-component-transform",
+      "start": 1727667735448,
+      "end": 1727667735448,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1727667735448,
+      "end": 1727667735448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport { inject } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"GameHeader\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const gameState = inject(\"gameState\");\n    const startNewGame = inject(\"startNewGame\");\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<header${_ssrRenderAttrs(_mergeProps({ class: \"flex justify-between mb-4\" }, _attrs))}><h1 class=\"text-3xl font-bold\">Deal or No Deal</h1><p>Maletin del jugador: ${_ssrInterpolate(_unref(gameState).playerBox?.id)}</p><p>Ronda: ${_ssrInterpolate(_unref(gameState).currentRound)}</p><button class=\"bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded\">New Game</button></header>`);\n    };\n  }\n});\n",
+      "start": 1727667735448,
+      "end": 1727667735716,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/jes/dealornodeal_web/components/Blocks/GameHeader.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport { inject } from 'vue'\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'GameHeader',\n  __ssrInlineRender: true,\n  setup(__props) {\n\nconst gameState = inject('gameState')\nconst startNewGame = inject('startNewGame')\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<header${\n    _ssrRenderAttrs(_mergeProps({ class: \"flex justify-between mb-4\" }, _attrs))\n  }><h1 class=\"text-3xl font-bold\">Deal or No Deal</h1><p>Maletin del jugador: ${\n    _ssrInterpolate(_unref(gameState).playerBox?.id)\n  }</p><p>Ronda: ${\n    _ssrInterpolate(_unref(gameState).currentRound)\n  }</p><button class=\"bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded\">New Game</button></header>`)\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,cAAc,mBAAmB;AAC3D,SAAS,kBAAkB,iBAAiB,kBAAkB,uBAAuB;AAErF,SAAS,cAAc;AAGvB,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,MAAM,SAAS;AAEjB,UAAM,YAAY,OAAO,WAAW;AACpC,UAAM,eAAe,OAAO,cAAc;AAE1C,WAAO,CAAC,MAAU,OAAW,SAAa,WAAgB;AACxD,YAAM,UACJ,gBAAgB,YAAY,EAAE,OAAO,4BAA4B,GAAG,MAAM,CAAC,CAC7E,+EACE,gBAAgB,OAAO,SAAS,EAAE,WAAW,EAAE,CACjD,iBACE,gBAAgB,OAAO,SAAS,EAAE,YAAY,CAChD,yHAAyH;AAAA,IAC3H;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1727667735716,
+      "end": 1727667735716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1727667735716,
+      "end": 1727667735716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1727667735716,
+      "end": 1727667735716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1727667735716,
+      "end": 1727667735716,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667735716,
+      "end": 1727667735716,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667735716,
+      "end": 1727667735716,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667735716,
+      "end": 1727667735717,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667735716,
+      "end": 1727667735717,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1727667735717,
+      "end": 1727667735717,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667735717,
+      "end": 1727667735717,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1727667735717,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667735718,
+      "end": 1727667735719,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667735719,
+      "end": 1727667735719,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667735719,
+      "end": 1727667735719,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667735720,
+      "end": 1727667735720,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667735720,
+      "end": 1727667735720,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1727667735720,
+      "end": 1727667735722,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1727667735720,
+      "end": 1727667735723,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667735724,
+      "end": 1727667735724,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667735724,
+      "end": 1727667735724,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1727667735724,
+      "end": 1727667735724,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1727667735724,
+      "end": 1727667735724,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1727667735724,
+      "end": 1727667735724,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1727667735724,
+      "end": 1727667735724,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1727667735724,
+      "end": 1727667735725,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1727667735725,
+      "end": 1727667735725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1727667735725,
+      "end": 1727667735725,
+      "order": "normal"
+    }
+  ]
+}

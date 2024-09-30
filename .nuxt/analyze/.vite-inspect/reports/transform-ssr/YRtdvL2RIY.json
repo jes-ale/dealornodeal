@@ -1,0 +1,342 @@
+{
+  "resolvedId": "/home/jes/dealornodeal_web/pages/login.vue?vue&type=style&index=1&scoped=0b2439d1&lang.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.form-wrapper:hover .cat-peek {\n  animation: peek 1s ease-in-out infinite;\n}\n\n@import 'tailwindcss/tailwind.css';\n",
+      "start": 1727667734318,
+      "end": 1727667734320,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/jes/dealornodeal_web/pages/login.vue"
+        ],
+        "names": [],
+        "mappings": ";AA6GA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EAC5B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzC;;AAEA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC",
+        "file": "/home/jes/dealornodeal_web/pages/login.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<script setup>\nimport { ref } from 'vue'\nimport { usePocketBase } from '@/composables/usePocketBase'\nimport { useRouter } from 'vue-router'\nimport { EventBus } from '~/event-bus'\nconst { t } = useI18n()\ndefinePageMeta({\n  layout: false,\n})\n\nconst email = ref('')\nconst password = ref('')\nconst isLoading = ref(false)\n\nconst { login } = usePocketBase()\nconst router = useRouter()\n\nconst handleLogin = async () => {\n  isLoading.value = true\n  try {\n    await login(email.value, password.value)\n    setTimeout(() => {\n      EventBus.emit('notify', {\n        type: 'success',\n        title: t('text.success'),\n        message: t('text.successLogin'),\n        action: 'close',\n      })\n    }, 500)\n\n    setTimeout(() => {\n      isLoading.value = false\n      router.push('/')\n    }, 1000)\n\n  } catch (err) {\n    setTimeout(() => {\n      EventBus.emit('notify', {\n        type: 'failure',\n        title: t('text.failure'),\n        message: `Usuario o clave no coinciden.`,\n        action: 'close',\n      })\n      isLoading.value = false\n    }, 3000)\n  }\n}\n</script>\n\n<template>\n  <div>\n    <NuxtLayout name=\"main\">\n      <div class=\"login-container relative w-full h-full flex items-center justify-center p-4 md:p-16\">\n        <div :class=\"[isLoading ? 'spin-3d' : '']\"\n          class=\" shadow-lg form-wrapper bg-opacity-25 bg-neutral-50 p-8 border border-neutral-900 transform transition-transform hover:scale-105 z-10 relative overflow-hidden\">\n          <h1 class=\"text-2xl font-bold mb-4\">Login</h1>\n          <form @submit.prevent=\"handleLogin\">\n            <div class=\"form-group mb-4\">\n              <label for=\"email\" class=\"block mb-2\">Email</label>\n              <input v-model=\"email\" type=\"email\" id=\"email\" required\n                class=\"text-neutral-900 w-full p-2 border border-neutral-900 bg-white outline-none focus:border-neutral-900\" />\n            </div>\n            <div class=\"form-group mb-6\">\n              <label for=\"password\" class=\"block mb-2\">Password</label>\n              <input v-model=\"password\" type=\"password\" id=\"password\" required\n                class=\"text-neutral-900 w-full p-2 border border-neutral-900 bg-white outline-none focus:border-neutral-900\" />\n            </div>\n            <button type=\"submit\"\n              class=\"text-neutral-900 bg-neutral-50 w-full h-12 flex items-center justify-center border border-neutral-900 transform transition-transform hover:text-black hover:font-bold hover:scale-90\">\n              Login\n            </button>\n          </form>\n        </div>\n      </div>\n    </NuxtLayout>\n  </div>\n</template>\n\n\n<style>\n@keyframes peek {\n\n  0%,\n  100% {\n    transform: translateY(100%);\n  }\n\n  50% {\n    transform: translateY(0%);\n  }\n}\n\n@keyframes spinY {\n  0% {\n    transform: rotateY(0deg);\n  }\n\n  100% {\n    transform: rotateY(360deg);\n  }\n}\n\n.spin-3d {\n  animation: spinY 2s linear infinite;\n  transform-style: preserve-3d;\n}\n</style>\n\n<style scoped>\n.form-wrapper:hover .cat-peek {\n  animation: peek 1s ease-in-out infinite;\n}\n\n@import 'tailwindcss/tailwind.css';\n</style>\n\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667734336,
+      "end": 1727667734336,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667734336,
+      "end": 1727667734336,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667734337,
+      "end": 1727667734337,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667734337,
+      "end": 1727667734337,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667734337,
+      "end": 1727667734337,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667734337,
+      "end": 1727667734337,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667734337,
+      "end": 1727667734337,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667734337,
+      "end": 1727667734337,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1727667734337,
+      "end": 1727667734337,
+      "order": "pre"
+    },
+    {
+      "name": "server-only-component-transform",
+      "start": 1727667734337,
+      "end": 1727667734338,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".form-wrapper:hover .cat-peek{animation:peek 1s ease-in-out infinite}",
+      "start": 1727667734338,
+      "end": 1727667734356,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "/home/jes/dealornodeal_web/pages/login.vue",
+        "mappings": "AACA,8BACE,sCACF",
+        "names": [],
+        "sources": [
+          "/home/jes/dealornodeal_web/pages/login.vue"
+        ],
+        "sourcesContent": [
+          "\n.form-wrapper:hover .cat-peek {\n  animation: peek 1s ease-in-out infinite;\n}\n\n@import 'tailwindcss/tailwind.css';\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1727667734357,
+      "end": 1727667734357,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1727667734357,
+      "end": 1727667734357,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1727667734358,
+      "end": 1727667734358,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".form-wrapper:hover .cat-peek[data-v-0b2439d1]{animation:peek 1s ease-in-out infinite}",
+      "start": 1727667734375,
+      "end": 1727667734375,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "/home/jes/dealornodeal_web/pages/login.vue",
+        "mappings": "AAAA,+CAA8B,sCAAsC",
+        "names": [],
+        "sources": [
+          "/home/jes/dealornodeal_web/pages/login.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1727667734376,
+      "end": 1727667734376,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667734377,
+      "end": 1727667734377,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667734377,
+      "end": 1727667734377,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667734377,
+      "end": 1727667734377,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667734377,
+      "end": 1727667734377,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1727667734377,
+      "end": 1727667734378,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667734378,
+      "end": 1727667734378,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1727667734378,
+      "end": 1727667734378,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1727667734378,
+      "end": 1727667734378,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \".form-wrapper:hover .cat-peek[data-v-0b2439d1]{animation:peek 1s ease-in-out infinite}\"",
+      "start": 1727667734378,
+      "end": 1727667734378,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1727667734378,
+      "end": 1727667734379,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1727667734379,
+      "end": 1727667734379,
+      "order": "normal"
+    }
+  ]
+}

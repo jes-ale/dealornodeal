@@ -1,0 +1,238 @@
+{
+  "resolvedId": "/home/jes/dealornodeal_web/components/Views/ListView.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { ref, computed, onMounted, defineProps } from 'vue';\nimport { usePocketBase } from '~/composables/usePocketBase';\nimport { EventBus } from '~/event-bus.ts';\nimport { useRouter } from 'vue-router';\nimport { Icon } from '@iconify/vue';\n\nconst props = defineProps({\n  collection: {\n    type: String,\n    required: true,\n  },\n  fields: {\n    type: Array,\n    required: true,\n  },\n});\n\nconst { pb } = usePocketBase();\nconst search = ref('');\nconst items = ref([]);\nconst filters = ref([]);\nconst router = useRouter();\n\nconst fetchItems = async () => {\n  EventBus.emit('loading', { show: true });\n  try {\n    const query = buildQuery();\n    const records = await pb.collection(props.collection).getFullList({ filter: query });\n    items.value = records;\n  } catch (error) {\n    console.error('Error fetching items:', error);\n  } finally {\n    EventBus.emit('loading', { show: false });\n  }\n};\n\nconst buildQuery = () => {\n  const queryParts = [];\n\n  if (search.value) {\n    queryParts.push(\n      visibleFields.value.map(field =>\n        `${field.field_name} ~ \"${search.value}\"`\n      ).join(' || ')\n    );\n  }\n\n  filters.value.forEach(filter => {\n    if (filter.field && filter.condition && filter.value) {\n      switch (filter.condition) {\n        case 'equals':\n          queryParts.push(`${filter.field} = \"${filter.value}\"`);\n          break;\n        case 'contains':\n          queryParts.push(`${filter.field} ~ \"${filter.value}\"`);\n          break;\n        case 'starts_with':\n          queryParts.push(`${filter.field} ~ \"^${filter.value}\"`);\n          break;\n        case 'ends_with':\n          queryParts.push(`${filter.field} ~ \"${filter.value}$\"`);\n          break;\n      }\n    }\n  });\n\n  return queryParts.length > 0 ? queryParts.join(' && ') : null;\n};\n\nconst addFilter = () => {\n  filters.value.push({ field: '', condition: 'equals', value: '' });\n};\n\nconst removeFilter = (index) => {\n  filters.value.splice(index, 1);\n};\n\nconst visibleFields = computed(() => props.fields.filter((field) => field.visible));\n\nconst route = useRoute();\n\nconst navigateToUpdate = (id: string) => {\n  const currentPath = route.path.split('/')[1]; // Get the first part of the URL path\n  router.push(`/${currentPath}/form/${id}`);\n};\n\nonMounted(fetchItems);\n</script>\n\n<template>\n  <div class=\"flex w-full h-full justify-start items-center flex-col\">\n    <div class=\"flex justify-start items-center w-full\">\n      <input type=\"text\" v-model=\"search\" @input=\"fetchItems\" placeholder=\"Search...\"\n        class=\"border-x border-black p-2 bg-rose-100 w-full\" />\n      <button @click=\"addFilter\" class=\" p-2 h-full w-auto\">\n        <Icon icon=\"fluent:filter-add-20-filled\" />\n      </button>\n      <button @click=\"fetchItems\" class=\"border-x border-black p-2 h-full w-auto\">\n        <Icon icon=\"carbon:query\" />\n      </button>\n    </div>\n    <div class=\"flex flex-col w-full\">\n      <div v-for=\"(filter, index) in filters\" :key=\"index\" class=\"flex border-t border-black w-full\">\n        <select v-model=\"filter.field\" class=\"border-r border-black p-2 bg-transparent w-full\">\n          <option disabled value=\"\">Select field</option>\n          <option v-for=\"field in fields\" :key=\"field.id\" :value=\"field.field_name\">{{ field.field_name }}</option>\n        </select>\n        <select v-model=\"filter.condition\" class=\"border-r border-black p-2 bg-transparent w-full\">\n          <option value=\"equals\">Equals</option>\n          <option value=\"contains\">Contains</option>\n          <option value=\"starts_with\">Starts with</option>\n          <option value=\"ends_with\">Ends with</option>\n        </select>\n        <input type=\"text\" v-model=\"filter.value\" class=\"border-r border-black p-2 bg-rose-100 w-full\" />\n        <button @click=\"removeFilter(index)\" class=\"p-2 w-full hover:bg-rose-100\">Remove</button>\n      </div>\n    </div>\n    <table class=\"min-w-full border-collapse\">\n      <thead>\n        <tr>\n          <th v-for=\"field in visibleFields\" :key=\"field.id\" class=\"border border-black p-2 bg-rose-100\">\n            {{ field.field_name.charAt(0).toUpperCase() + field.field_name.slice(1) }}\n          </th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr v-for=\"item in items\" :key=\"item.id\" class=\"even:bg-rose-100\" @click=\"navigateToUpdate(item.id)\">\n          <td v-for=\"field in visibleFields\" :key=\"field.id\" class=\"border border-black p-2\">\n            {{ item[field.field_name] }}\n          </td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</template>\n\n\n\n<style scoped>\n@import 'tailwindcss/tailwind.css';\n/* Add any additional styles */\n</style>\n",
+      "start": 1727667729911,
+      "end": 1727667730212,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667730212,
+      "end": 1727667730212,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667730212,
+      "end": 1727667730212,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667730212,
+      "end": 1727667730212,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667730212,
+      "end": 1727667730212,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1727667730212,
+      "end": 1727667730212,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1727667730212,
+      "end": 1727667730212,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1727667730212,
+      "end": 1727667730212,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1727667730212,
+      "end": 1727667730212,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1727667730212,
+      "end": 1727667730212,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/home/jes/dealornodeal_web/components/Views/ListView.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/home/jes/dealornodeal_web/components/Views/ListView.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/home/jes/dealornodeal_web/components/Views/ListView.vue?vue&type=style&index=0&scoped=7efb7493&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-7efb7493\"]]);\n",
+      "start": 1727667730212,
+      "end": 1727667730354,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667730354,
+      "end": 1727667730354,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1727667730354,
+      "end": 1727667730355,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667730355,
+      "end": 1727667730355,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1727667730355,
+      "end": 1727667730355,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1727667730355,
+      "end": 1727667730355,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1727667730355,
+      "end": 1727667730355,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1727667730355,
+      "end": 1727667730355,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1727667730355,
+      "end": 1727667730355,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1727667730355,
+      "end": 1727667730355,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1727667730355,
+      "end": 1727667730355,
+      "order": "normal"
+    }
+  ]
+}

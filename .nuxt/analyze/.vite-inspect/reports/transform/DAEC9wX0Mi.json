@@ -1,0 +1,247 @@
+{
+  "resolvedId": "/home/jes/dealornodeal_web/pages/game/index.vue?macro=true",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n\n  <div>\n    <NuxtLayout name=\"default\">\n      <div class=\"container mx-auto p-4\">\n        <GameHeader />\n        <div class=\"w-full flex justify-between space-x-4\">\n          <GameBoard />\n          <ChatLog />\n        </div>\n      </div>\n\n      <Dialog :open=\"isOpen\" @close=\"setIsOpen\">\n        <DialogPanel>\n          <DialogTitle>Seleccionar Maletin inicial</DialogTitle>\n          <DialogDescription>\n            Esta accion es permanente\n          </DialogDescription>\n          <input type=\"number\" v-model=\"input_player_box\" />\n          <button @click=\"aceptarInput(input_player_box)\">Aceptar</button>\n          <button @click=\"setIsOpen(false)\">Cancel</button>\n        </DialogPanel>\n      </Dialog>\n\n    </NuxtLayout>\n  </div>\n\n</template>\n\n<script setup lang=\"ts\">\nimport { ref, computed } from 'vue'\nimport {\n  Dialog,\n  DialogPanel,\n  DialogTitle,\n  DialogDescription,\n} from '@headlessui/vue'\nimport GameHeader from '~/components/Blocks/GameHeader.vue'\nimport GameBoard from '~/components/Blocks/GameBoard.vue'\nimport ChatLog from '~/components/Blocks/ChatLog.vue'\n\n// Game constants\nconst NUM_BOXES = 26\nconst NUM_ROUNDS = 5\nconst BANKER_OFFER_ROUND = 3\n\nconst input_player_box = ref(0)\n\nconst isOpen = ref(true)\n\nfunction setIsOpen(value) {\n  isOpen.value = value\n}\n\nfunction aceptarInput(input) {\n  if (gameState.boxes.includes(input)) {\n    setIsOpen(false)\n    input_player_box.value = 0\n    initGame()\n    gameState.value.currentRound = 0\n    gameState.value.bankerOffer = 0\n    gameState.value.gameLog = []\n  }\n  else {\n    alert(\"VALOR INVALIDO, PORFAVOR INGRESE UN VALOR DE 1 A 26.\")\n\n  }\n}\n\n// Game state\nconst gameState = ref({\n  boxes: [],\n  playerBox: null,\n  currentRound: 0,\n  bankerOffer: 0,\n  gameLog: []\n})\n\n\n// Initialize game state\nfunction initGame() {\n  // Create boxes with random values\n  const boxes = []\n  for (let i = 1; i <= NUM_BOXES; i++) {\n    boxes.push({ id: i, value: Math.floor(Math.random() * 100) + 1 })\n  }\n\n  gameState.value.boxes = boxes\n\n  // Select a random box for the player\n  const playerBoxIndex = Math.floor(Math.random() * NUM_BOXES)\n\n  gameState.value.playerBox = boxes[playerBoxIndex]\n}\n\n// Start a new game\nfunction startNewGame() {\n  setIsOpen(true)\n}\n\n// Open a box\nfunction openBox(boxId: number) {\n  const boxIndex = gameState.value.boxes.findIndex(box => box.id === boxId)\n  if (boxIndex !== -1) {\n    gameState.value.boxes[boxIndex].opened = true\n    gameState.value.gameLog.push(`Box ${boxId} opened with value ${gameState.value.boxes[boxIndex].value}`)\n  }\n}\n\n// Make a banker offer\nfunction makeBankerOffer() {\n  const remainingBoxes = gameState.value.boxes.filter(box => !box.opened)\n  const averageValue = remainingBoxes.reduce((sum, box) => sum + box.value, 0) / remainingBoxes.length\n  gameState.value.bankerOffer = Math.floor(averageValue * 0.8)\n  gameState.value.gameLog.push(`Banker offers $${gameState.value.bankerOffer}`)\n}\n\n// Player accepts or rejects the banker offer\nfunction playerDecision(accept: boolean) {\n  if (accept) {\n    // Player accepts the offer\n    gameState.value.gameLog.push(`Player accepts offer of $${gameState.value.bankerOffer}`)\n    // End the game\n    endGame()\n  } else {\n    // Player rejects the offer\n    gameState.value.gameLog.push(`Player rejects offer of $${gameState.value.bankerOffer}`)\n    // Continue the game\n    nextRound()\n  }\n}\n\n// End the game\nfunction endGame() {\n  // Reveal the player's box value\n  gameState.value.gameLog.push(`Player's box value is $${gameState.value.playerBox.value}`)\n  // Determine the winner\n  if (gameState.value.bankerOffer > gameState.value.playerBox.value) {\n    gameState.value.gameLog.push('Banker wins!')\n  } else {\n    gameState.value.gameLog.push('Player wins!')\n  }\n}\n\n// Next round\nfunction nextRound() {\n  gameState.value.currentRound++\n  if (gameState.value.currentRound >= NUM_ROUNDS) {\n    // Last round, reveal all remaining boxes\n    gameState.value.boxes.forEach(box => {\n      if (!box.opened) {\n        openBox(box.id)\n      }\n    })\n    endGame()\n  } else {\n    // Open a random box\n    const boxIndex = Math.floor(Math.random() * gameState.value.boxes.length)\n    openBox(gameState.value.boxes[boxIndex].id)\n    if (gameState.value.currentRound === BANKER_OFFER_ROUND) {\n      makeBankerOffer()\n    }\n  }\n}\n\n// Expose game logic to child components\nprovide('gameState', gameState)\nprovide('startNewGame', startNewGame)\nprovide('openBox', openBox)\nprovide('makeBankerOffer', makeBankerOffer)\nprovide('playerDecision', playerDecision)\n\n\n\n\n\n\nconst questions = [\n  {\n    name: \"Pregunta 0\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 1\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  }, {\n    name: \"Pregunta 2\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 3\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 4\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  }, {\n    name: \"Pregunta 5\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 6\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 7\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  }, {\n    name: \"Pregunta 8\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 9\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 10\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  }, {\n    name: \"Pregunta 11\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 12\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 13\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  }, {\n    name: \"Pregunta 14\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 15\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 16\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  }, {\n    name: \"Pregunta 17\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 19\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 20\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  }, {\n    name: \"Pregunta 21\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 22\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 23\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 24\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 25\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  },\n  {\n    name: \"Pregunta 26\", options: [\n      \"A\",\n      \"B\",\n      \"C\",\n      \"D\",\n    ]\n  }\n]\n</script>\n",
+      "start": 1727667729369,
+      "end": 1727667729398,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667729398,
+      "end": 1727667729398,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667729398,
+      "end": 1727667729398,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667729398,
+      "end": 1727667729398,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667729398,
+      "end": 1727667729398,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1727667729398,
+      "end": 1727667729398,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1727667729398,
+      "end": 1727667729398,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1727667729398,
+      "end": 1727667729398,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1727667729398,
+      "end": 1727667729398,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1727667729398,
+      "end": 1727667729398,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/home/jes/dealornodeal_web/pages/game/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/home/jes/dealornodeal_web/pages/game/index.vue?vue&type=script&setup=true&lang.ts\";\nexport default _sfc_main;\n",
+      "start": 1727667729398,
+      "end": 1727667729605,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1727667729605,
+      "end": 1727667729605,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667729605,
+      "end": 1727667729606,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667729606,
+      "end": 1727667729606,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1727667729606,
+      "end": 1727667729606,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1727667729606,
+      "end": 1727667729607,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667729607,
+      "end": 1727667729607,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1727667729607,
+      "end": 1727667729607,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1727667729607,
+      "end": 1727667729607,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1727667729608,
+      "end": 1727667729608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1727667729608,
+      "end": 1727667729608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1727667729608,
+      "end": 1727667729608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1727667729608,
+      "end": 1727667729608,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1727667729608,
+      "end": 1727667729608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1727667729609,
+      "end": 1727667729609,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1727667729609,
+      "end": 1727667729609,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667729609,
+      "end": 1727667729609,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667729609,
+      "end": 1727667729610,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667729610,
+      "end": 1727667729610,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1727667729610,
+      "end": 1727667729614,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667729614,
+      "end": 1727667729614,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "export { default } from \"/home/jes/dealornodeal_web/pages/game/index.vue?macro=true&vue&type=script&setup=true&lang.ts\"",
+      "start": 1727667729614,
+      "end": 1727667729616,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA"
+      }
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1727667729616,
+      "end": 1727667729616,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1727667729616,
+      "end": 1727667729616,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1727667729616,
+      "end": 1727667729617,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1727667729617,
+      "end": 1727667729617,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1727667729617,
+      "end": 1727667729617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1727667729617,
+      "end": 1727667729617,
+      "order": "normal"
+    }
+  ]
+}

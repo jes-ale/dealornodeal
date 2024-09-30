@@ -1,0 +1,322 @@
+{
+  "resolvedId": "/home/jes/dealornodeal_web/components/Blocks/GameBoard.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\nimport { inject } from 'vue'\nimport Box from './Box.vue'\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'GameBoard',\n  __ssrInlineRender: true,\n  setup(__props) {\n\nconst gameState = inject('gameState')\nconst openBox = inject('openBox')\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"w-full grid grid-cols-6 gap-4\" }, _attrs))}><!--[-->`)\n  _ssrRenderList(_unref(gameState).boxes, (box, index) => {\n    _push(_ssrRenderComponent(Box, {\n      key: index,\n      box: box,\n      onSelect: _unref(openBox)\n    }, null, _parent))\n  })\n  _push(`<!--]--></div>`)\n}\n}\n\n})",
+      "start": 1727667735449,
+      "end": 1727667735449,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/jes/dealornodeal_web/components/Blocks/GameBoard.vue"
+        ],
+        "sourcesContent": [
+          "<template>\n    <div class=\"w-full grid grid-cols-6 gap-4\">\n        <Box v-for=\"(box, index) in gameState.boxes\" :key=\"index\" :box=\"box\" @select=\"openBox\" />\n    </div>\n</template>\n\n<script setup lang=\"ts\">\nimport { inject } from 'vue'\nimport Box from './Box.vue'\n\nconst gameState = inject('gameState')\nconst openBox = inject('openBox')\n</script>\n"
+        ],
+        "names": [],
+        "mappings": ";;;;AAOA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3B;;;;;;AAHwB;AAIxB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667735449,
+      "end": 1727667735449,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1727667735449,
+      "end": 1727667735449,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667735449,
+      "end": 1727667735449,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1727667735449,
+      "end": 1727667735449,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667735449,
+      "end": 1727667735449,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1727667735449,
+      "end": 1727667735449,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667735449,
+      "end": 1727667735449,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1727667735449,
+      "end": 1727667735449,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1727667735449,
+      "end": 1727667735449,
+      "order": "pre"
+    },
+    {
+      "name": "server-only-component-transform",
+      "start": 1727667735449,
+      "end": 1727667735450,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1727667735450,
+      "end": 1727667735450,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport { inject } from \"vue\";\nimport Box from \"./Box.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"GameBoard\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const gameState = inject(\"gameState\");\n    const openBox = inject(\"openBox\");\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"w-full grid grid-cols-6 gap-4\" }, _attrs))}><!--[-->`);\n      _ssrRenderList(_unref(gameState).boxes, (box, index) => {\n        _push(_ssrRenderComponent(Box, {\n          key: index,\n          box,\n          onSelect: _unref(openBox)\n        }, null, _parent));\n      });\n      _push(`<!--]--></div>`);\n    };\n  }\n});\n",
+      "start": 1727667735450,
+      "end": 1727667735716,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/jes/dealornodeal_web/components/Blocks/GameBoard.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\nimport { inject } from 'vue'\nimport Box from './Box.vue'\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'GameBoard',\n  __ssrInlineRender: true,\n  setup(__props) {\n\nconst gameState = inject('gameState')\nconst openBox = inject('openBox')\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"w-full grid grid-cols-6 gap-4\" }, _attrs))}><!--[-->`)\n  _ssrRenderList(_unref(gameState).boxes, (box, index) => {\n    _push(_ssrRenderComponent(Box, {\n      key: index,\n      box: box,\n      onSelect: _unref(openBox)\n    }, null, _parent))\n  })\n  _push(`<!--]--></div>`)\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,cAAc,mBAAmB;AAC3D,SAAS,sBAAsB,qBAAqB,kBAAkB,iBAAiB,iBAAiB,sBAAsB;AAE9H,SAAS,cAAc;AACvB,OAAO,SAAS;AAGhB,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,MAAM,SAAS;AAEjB,UAAM,YAAY,OAAO,WAAW;AACpC,UAAM,UAAU,OAAO,SAAS;AAEhC,WAAO,CAAC,MAAU,OAAW,SAAa,WAAgB;AACxD,YAAM,OAAO,gBAAgB,YAAY,EAAE,OAAO,gCAAgC,GAAG,MAAM,CAAC,CAAC,WAAW;AACxG,qBAAe,OAAO,SAAS,EAAE,OAAO,CAAC,KAAK,UAAU;AACtD,cAAM,oBAAoB,KAAK;AAAA,UAC7B,KAAK;AAAA,UACL;AAAA,UACA,UAAU,OAAO,OAAO;AAAA,QAC1B,GAAG,MAAM,OAAO,CAAC;AAAA,MACnB,CAAC;AACD,YAAM,gBAAgB;AAAA,IACxB;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1727667735716,
+      "end": 1727667735716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1727667735716,
+      "end": 1727667735716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1727667735716,
+      "end": 1727667735716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1727667735716,
+      "end": 1727667735716,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667735716,
+      "end": 1727667735716,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667735716,
+      "end": 1727667735716,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667735716,
+      "end": 1727667735717,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1727667735716,
+      "end": 1727667735717,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1727667735717,
+      "end": 1727667735717,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1727667735717,
+      "end": 1727667735717,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1727667735717,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667735718,
+      "end": 1727667735718,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1727667735718,
+      "end": 1727667735719,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667735719,
+      "end": 1727667735719,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1727667735719,
+      "end": 1727667735719,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667735720,
+      "end": 1727667735720,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1727667735720,
+      "end": 1727667735720,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1727667735720,
+      "end": 1727667735722,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1727667735720,
+      "end": 1727667735723,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667735724,
+      "end": 1727667735724,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1727667735724,
+      "end": 1727667735724,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1727667735724,
+      "end": 1727667735724,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1727667735724,
+      "end": 1727667735724,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1727667735724,
+      "end": 1727667735724,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1727667735724,
+      "end": 1727667735724,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1727667735725,
+      "end": 1727667735725,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1727667735725,
+      "end": 1727667735725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1727667735725,
+      "end": 1727667735725,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+import{h as e,D as s,o,c as a}from"./qlvJx28p.js";const n={class:"relative flex flex-col no-scrollbar overflow-y-scroll h-screen w-screen text-black text-sm bg-neutral-100 font-sans subpixel-antialiased slashed-zero diagonal-fractions"},i=e({__name:"404",setup(t){return s(),(l,r)=>(o(),a("main",n," Not Found 404 "))}});export{i as default};

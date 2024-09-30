@@ -1,0 +1,1 @@
+{"version":3,"file":"kanban-pDwzL5iq.js","sources":["../../../../pages/partner/kanban.vue"],"sourcesContent":["<script lang=\"ts\" setup>\nconst { t } = useI18n()\n</script>\n<template>\n  <div>\n    placeholder\n  </div>\n</template>\n"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;AACc,YAAQ;;;;;;;;;;;;"}

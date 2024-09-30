@@ -1,0 +1,1 @@
+{"version":3,"file":"list-DpoXMTm2.js","sources":["../../../../pages/partner/list.vue"],"sourcesContent":["<script lang=\"ts\" setup>\nconst { t } = useI18n()\n</script>\n<template>\n  <div>\n    placeholder\n  </div>\n</template>\n"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;AACc,YAAQ;;;;;;;;;;;;"}
