@@ -4,50 +4,50 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, createVNode as _createVNode, withCtx as _withCtx, createBlock as _createBlock, resolveComponent as _resolveComponent, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-cbbeebfc\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"w-full h-full flex items-start justify-center flex-col overflow-auto\" }\nconst _hoisted_2 = { class: \"w-full h-auto flex items-start justify-center flex-grow\" }\nconst _hoisted_3 = { class: \"text-black relative w-full h-full flex flex-col space-y-2 items-center justify- pt-6 px-2\" }\nconst _hoisted_4 = { class: \"text-md p-2 border border-black w-auto bg-rose-100 font-bold\" }\n\nimport { Icon } from '@iconify/vue'\nimport Header from '~/components/Blocks/Header.vue';\nimport 'swiper/css';\nimport 'swiper/css/navigation';\nimport 'swiper/css/pagination';\nimport 'swiper/css/scrollbar';\nimport GridActionPad from '~/components/Blocks/GridActionPad.vue';\nimport { Navigation, Pagination, Scrollbar, Autoplay, Parallax, EffectCreative } from 'swiper/modules'\nimport { Swiper, SwiperSlide } from 'swiper/vue'\nimport { usePocketBase } from '~/composables/usePocketBase'\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'index',\n  setup(__props) {\n\nconst modules = [Navigation, Pagination, Scrollbar, Autoplay, Parallax, EffectCreative]\nconst { t } = useI18n()\n\nconst menus = ref([\n  {\n    name: 'Home',\n    menuItems: [\n      { id: 1, name: 'Entrar al juego', link: '/game', icon: \"bxs:conversation\" },\n    ]\n  }\n]);\ndefinePageMeta({\n  layout: false,\n})\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtLayout = _resolveComponent(\"NuxtLayout\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(_component_NuxtLayout, { name: \"default\" }, {\n      default: _withCtx(() => [\n        _createElementVNode(\"div\", _hoisted_1, [\n          _createElementVNode(\"div\", _hoisted_2, [\n            _createVNode(_unref(Swiper), {\n              \"slides-per-view\": 1,\n              \"space-between\": 5,\n              navigation: \"\",\n              scrollbar: { draggable: true },\n              modules: modules,\n              pagination: { clickable: true },\n              class: \"flex w-full h-full justify-center items-start\"\n            }, {\n              default: _withCtx(() => [\n                (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(menus), (menu) => {\n                  return (_openBlock(), _createBlock(_unref(SwiperSlide), {\n                    key: menu.name,\n                    class: \"flex w-full h-full text-center justify-center font-bold text-xs\"\n                  }, {\n                    default: _withCtx(() => [\n                      _createElementVNode(\"div\", _hoisted_3, [\n                        _createElementVNode(\"h1\", _hoisted_4, _toDisplayString(menu.name), 1),\n                        _createVNode(GridActionPad, {\n                          items: menu.menuItems\n                        }, null, 8, [\"items\"])\n                      ])\n                    ]),\n                    _: 2\n                  }, 1024))\n                }), 128))\n              ]),\n              _: 1\n            })\n          ])\n        ])\n      ]),\n      _: 1\n    })\n  ]))\n}\n}\n\n})",
-      "start": 1727667730138,
-      "end": 1727667730138
+      "start": 1728383049638,
+      "end": 1728383049638
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1727667730138,
-      "end": 1727667730138,
+      "start": 1728383049638,
+      "end": 1728383049638,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1727667730138,
-      "end": 1727667730138,
+      "start": 1728383049638,
+      "end": 1728383049638,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1727667730138,
-      "end": 1727667730138,
+      "start": 1728383049638,
+      "end": 1728383049639,
       "order": "pre"
     },
     {
       "name": "content-slot",
-      "start": 1727667730138,
-      "end": 1727667730138,
+      "start": 1728383049639,
+      "end": 1728383049639,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1727667730138,
-      "end": 1727667730138,
+      "start": 1728383049639,
+      "end": 1728383049639,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1727667730138,
-      "end": 1727667730138,
+      "start": 1728383049639,
+      "end": 1728383049639,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, createVNode as _createVNode, withCtx as _withCtx, createBlock as _createBlock, resolveComponent as _resolveComponent, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-cbbeebfc\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"w-full h-full flex items-start justify-center flex-col overflow-auto\" };\nconst _hoisted_2 = { class: \"w-full h-auto flex items-start justify-center flex-grow\" };\nconst _hoisted_3 = { class: \"text-black relative w-full h-full flex flex-col space-y-2 items-center justify- pt-6 px-2\" };\nconst _hoisted_4 = { class: \"text-md p-2 border border-black w-auto bg-rose-100 font-bold\" };\nimport \"swiper/css\";\nimport \"swiper/css/navigation\";\nimport \"swiper/css/pagination\";\nimport \"swiper/css/scrollbar\";\nimport GridActionPad from \"~/components/Blocks/GridActionPad.vue\";\nimport { Navigation, Pagination, Scrollbar, Autoplay, Parallax, EffectCreative } from \"swiper/modules\";\nimport { Swiper, SwiperSlide } from \"swiper/vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  setup(__props) {\n    const modules = [Navigation, Pagination, Scrollbar, Autoplay, Parallax, EffectCreative];\n    const { t } = useI18n();\n    const menus = ref([\n      {\n        name: \"Home\",\n        menuItems: [\n          { id: 1, name: \"Entrar al juego\", link: \"/game\", icon: \"bxs:conversation\" }\n        ]\n      }\n    ]);\n    definePageMeta({\n      layout: false\n    });\n    return (_ctx, _cache) => {\n      const _component_NuxtLayout = _resolveComponent(\"NuxtLayout\");\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(_component_NuxtLayout, { name: \"default\" }, {\n          default: _withCtx(() => [\n            _createElementVNode(\"div\", _hoisted_1, [\n              _createElementVNode(\"div\", _hoisted_2, [\n                _createVNode(_unref(Swiper), {\n                  \"slides-per-view\": 1,\n                  \"space-between\": 5,\n                  navigation: \"\",\n                  scrollbar: { draggable: true },\n                  modules,\n                  pagination: { clickable: true },\n                  class: \"flex w-full h-full justify-center items-start\"\n                }, {\n                  default: _withCtx(() => [\n                    (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(menus), (menu) => {\n                      return _openBlock(), _createBlock(_unref(SwiperSlide), {\n                        key: menu.name,\n                        class: \"flex w-full h-full text-center justify-center font-bold text-xs\"\n                      }, {\n                        default: _withCtx(() => [\n                          _createElementVNode(\"div\", _hoisted_3, [\n                            _createElementVNode(\"h1\", _hoisted_4, _toDisplayString(menu.name), 1),\n                            _createVNode(GridActionPad, {\n                              items: menu.menuItems\n                            }, null, 8, [\"items\"])\n                          ])\n                        ]),\n                        _: 2\n                      }, 1024);\n                    }), 128))\n                  ]),\n                  _: 1\n                })\n              ])\n            ])\n          ]),\n          _: 1\n        })\n      ]);\n    };\n  }\n});\n",
-      "start": 1727667730138,
-      "end": 1727667730161,
+      "start": 1728383049639,
+      "end": 1728383049761,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -63,135 +63,135 @@
     },
     {
       "name": "vite:json",
-      "start": 1727667730161,
-      "end": 1727667730161,
+      "start": 1728383049761,
+      "end": 1728383049761,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1727667730161,
-      "end": 1727667730161,
+      "start": 1728383049761,
+      "end": 1728383049761,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1727667730161,
-      "end": 1727667730161,
+      "start": 1728383049762,
+      "end": 1728383049762,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1727667730161,
-      "end": 1727667730161,
+      "start": 1728383049762,
+      "end": 1728383049762,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1727667730161,
-      "end": 1727667730161,
+      "start": 1728383049762,
+      "end": 1728383049762,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1727667730162,
-      "end": 1727667730162,
+      "start": 1728383049762,
+      "end": 1728383049762,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1727667730162,
-      "end": 1727667730162,
+      "start": 1728383049762,
+      "end": 1728383049762,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1727667730162,
-      "end": 1727667730162,
+      "start": 1728383049763,
+      "end": 1728383049763,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1727667730162,
-      "end": 1727667730162,
+      "start": 1728383049763,
+      "end": 1728383049763,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1727667730162,
-      "end": 1727667730162,
+      "start": 1728383049763,
+      "end": 1728383049763,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1727667730162,
-      "end": 1727667730162,
+      "start": 1728383049763,
+      "end": 1728383049763,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1727667730162,
-      "end": 1727667730162,
+      "start": 1728383049763,
+      "end": 1728383049764,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1727667730162,
-      "end": 1727667730162,
+      "start": 1728383049764,
+      "end": 1728383049764,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1727667730162,
-      "end": 1727667730162,
+      "start": 1728383049764,
+      "end": 1728383049764,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1727667730162,
-      "end": 1727667730162,
+      "start": 1728383049764,
+      "end": 1728383049764,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1727667730162,
-      "end": 1727667730162,
+      "start": 1728383049764,
+      "end": 1728383049764,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1727667730162,
-      "end": 1727667730162,
+      "start": 1728383049764,
+      "end": 1728383049764,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1727667730162,
-      "end": 1727667730162,
+      "start": 1728383049764,
+      "end": 1728383049764,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1727667730162,
-      "end": 1727667730162,
+      "start": 1728383049765,
+      "end": 1728383049765,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1727667730163,
-      "end": 1727667730163,
+      "start": 1728383049765,
+      "end": 1728383049765,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1727667730163,
-      "end": 1727667730163,
+      "start": 1728383049766,
+      "end": 1728383049766,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { useI18n } from '/home/jes/dealornodeal_web/node_modules/vue-i18n/dist/vue-i18n.mjs';\nimport { ref } from 'vue';\nimport { definePageMeta } from '/home/jes/dealornodeal_web/node_modules/nuxt/dist/pages/runtime/composables';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, createVNode as _createVNode, withCtx as _withCtx, createBlock as _createBlock, resolveComponent as _resolveComponent, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-cbbeebfc\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"w-full h-full flex items-start justify-center flex-col overflow-auto\" };\nconst _hoisted_2 = { class: \"w-full h-auto flex items-start justify-center flex-grow\" };\nconst _hoisted_3 = { class: \"text-black relative w-full h-full flex flex-col space-y-2 items-center justify- pt-6 px-2\" };\nconst _hoisted_4 = { class: \"text-md p-2 border border-black w-auto bg-rose-100 font-bold\" };\nimport \"swiper/css\";\nimport \"swiper/css/navigation\";\nimport \"swiper/css/pagination\";\nimport \"swiper/css/scrollbar\";\nimport GridActionPad from \"~/components/Blocks/GridActionPad.vue\";\nimport { Navigation, Pagination, Scrollbar, Autoplay, Parallax, EffectCreative } from \"swiper/modules\";\nimport { Swiper, SwiperSlide } from \"swiper/vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  setup(__props) {\n    const modules = [Navigation, Pagination, Scrollbar, Autoplay, Parallax, EffectCreative];\n    const { t } = useI18n();\n    const menus = ref([\n      {\n        name: \"Home\",\n        menuItems: [\n          { id: 1, name: \"Entrar al juego\", link: \"/game\", icon: \"bxs:conversation\" }\n        ]\n      }\n    ]);\n    definePageMeta({\n      layout: false\n    });\n    return (_ctx, _cache) => {\n      const _component_NuxtLayout = _resolveComponent(\"NuxtLayout\");\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(_component_NuxtLayout, { name: \"default\" }, {\n          default: _withCtx(() => [\n            _createElementVNode(\"div\", _hoisted_1, [\n              _createElementVNode(\"div\", _hoisted_2, [\n                _createVNode(_unref(Swiper), {\n                  \"slides-per-view\": 1,\n                  \"space-between\": 5,\n                  navigation: \"\",\n                  scrollbar: { draggable: true },\n                  modules,\n                  pagination: { clickable: true },\n                  class: \"flex w-full h-full justify-center items-start\"\n                }, {\n                  default: _withCtx(() => [\n                    (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(menus), (menu) => {\n                      return _openBlock(), _createBlock(_unref(SwiperSlide), {\n                        key: menu.name,\n                        class: \"flex w-full h-full text-center justify-center font-bold text-xs\"\n                      }, {\n                        default: _withCtx(() => [\n                          _createElementVNode(\"div\", _hoisted_3, [\n                            _createElementVNode(\"h1\", _hoisted_4, _toDisplayString(menu.name), 1),\n                            _createVNode(GridActionPad, {\n                              items: menu.menuItems\n                            }, null, 8, [\"items\"])\n                          ])\n                        ]),\n                        _: 2\n                      }, 1024);\n                    }), 128))\n                  ]),\n                  _: 1\n                })\n              ])\n            ])\n          ]),\n          _: 1\n        })\n      ]);\n    };\n  }\n});\n",
-      "start": 1727667730163,
-      "end": 1727667730171,
+      "start": 1728383049766,
+      "end": 1728383049774,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -204,15 +204,15 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1727667730172,
-      "end": 1727667730172,
+      "start": 1728383049775,
+      "end": 1728383049776,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
       "result": "const __nuxt_page_meta = {\n      layout: false\n    }\nexport default __nuxt_page_meta",
-      "start": 1727667730173,
-      "end": 1727667730174,
+      "start": 1728383049778,
+      "end": 1728383049780,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -225,38 +225,38 @@
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1727667730175,
-      "end": 1727667730175,
+      "start": 1728383049781,
+      "end": 1728383049781,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1727667730175,
-      "end": 1727667730175,
+      "start": 1728383049781,
+      "end": 1728383049781,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1727667730175,
-      "end": 1727667730175,
+      "start": 1728383049781,
+      "end": 1728383049781,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1727667730176,
-      "end": 1727667730176,
+      "start": 1728383049782,
+      "end": 1728383049782,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1727667730176,
-      "end": 1727667730176,
+      "start": 1728383049782,
+      "end": 1728383049782,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1727667730176,
-      "end": 1727667730176,
+      "start": 1728383049782,
+      "end": 1728383049782,
       "order": "normal"
     }
   ]

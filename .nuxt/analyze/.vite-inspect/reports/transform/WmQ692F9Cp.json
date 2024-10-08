@@ -4,69 +4,69 @@
     {
       "name": "vite:load-fallback",
       "result": "<script setup lang=\"ts\">\nimport { ref, computed, onMounted } from 'vue';\nimport { useRoute, useRouter } from 'vue-router';\nimport FormView from '~/components/Views/FormView.vue';\nimport Header from '~/components/Blocks/Header.vue';\nimport ActionButton from '~/components/Blocks/ActionButton.vue';\nimport { usePocketBase } from '~/composables/usePocketBase'; // Assuming this is where you import PocketBase\nimport { EventBus } from '~/event-bus.ts'; // Assuming this is your event bus setup\n\nconst props = defineProps({\n  id: {\n    type: String,\n    required: false,\n  },\n})\n\n\ninterface Field {\n  name: string;\n  label: string;\n  type: string;\n  options?: string[];\n  readonly?: boolean;\n}\n\nconst fields: Field[] = [\n  { name: 'username', label: 'Username', type: 'text' },\n  { name: 'verified', label: 'Verified', type: 'boolean' },\n  { name: 'email', label: 'Email', type: 'text' },\n  { name: 'created', label: 'Created', type: 'date', readonly: true },\n  { name: 'updated', label: 'Updated', type: 'date', readonly: true },\n  { name: 'avatar', label: 'Avatar', type: 'text' },\n  { name: 'roles', label: 'Roles', type: 'selection', options: ['admin', 'user', 'guest'] },\n  { name: 'contact_fk', label: 'Contact', type: 'many2one' },\n  { name: 'company_id', label: 'Company', type: 'many2one' },\n];\n\nconst initialData = ref<Record<string, any>>();\nconst route = useRoute();\nconst router = useRouter();\nconst userId = computed(() => route.params.id as string | undefined);\n\nconst formTitle = computed(() => (userId.value ? 'Update User' : 'Create User'));\n\nconst { pb } = usePocketBase(); // Initialize your PocketBase instance\n\nconst fetchUserData = async () => {\n  try {\n    if (userId.value) {\n      EventBus.emit('loading', { show: true }); // Trigger global loading indicator\n      const user = await pb.collection('internal_users').getOne(userId.value);\n      console.log('user', user);\n      initialData.value = user;\n    }\n  } catch (error) {\n    console.error('Error fetching user data:', error);\n  } finally {\n    EventBus.emit('loading', { show: false }); // Hide global loading indicator\n  }\n};\n\nonMounted(() => {\n  fetchUserData();\n});\n\nconst handleFormSubmit = async (formData: Record<string, any>) => {\n  try {\n    if (userId.value) {\n      EventBus.emit('loading', { show: true }); // Trigger global loading indicator\n      await pb.collection('internal_users').update(userId.value, formData);\n    } else {\n      EventBus.emit('loading', { show: true }); // Trigger global loading indicator\n      await pb.collection('internal_users').create(formData);\n    }\n    router.push('/user/list'); // Redirect to user list or appropriate page\n  } catch (error) {\n    console.error('Error submitting form:', error);\n  } finally {\n    EventBus.emit('loading', { show: false }); // Hide global loading indicator\n  }\n};\n\nconst handleCancel = () => {\n  console.log('Cancel clicked');\n  router.back(); // Navigate back to the previous page\n};\n</script>\n\n<template>\n  <div>\n    <NuxtLayout name=\"default\">\n      <div class=\"w-full h-full flex items-center justify-center\">\n        <FormView :title=\"formTitle\" :fields=\"fields\" :initialData=\"initialData\" collectionName=\"internal_users\"\n          @submit=\"handleFormSubmit\">\n          <template #buttons>\n            <ActionButton type=\"button\" icon=\"fluent:password-reset-48-filled\" label=\"Psswd\" @click=\"handleCancel\" />\n            <ActionButton type=\"button\" icon=\"mdi:cloud-refresh\" label=\"Fetch\" @click=\"fetchUserData\" />\n          </template>\n        </FormView>\n      </div>\n    </NuxtLayout>\n  </div>\n</template>\n\n\n<style scoped></style>\n",
-      "start": 1727667729376,
-      "end": 1727667729426,
+      "start": 1728383049110,
+      "end": 1728383049197,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1727667729426,
-      "end": 1727667729426,
+      "start": 1728383049197,
+      "end": 1728383049197,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1727667729426,
-      "end": 1727667729426,
+      "start": 1728383049197,
+      "end": 1728383049197,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1727667729426,
-      "end": 1727667729426,
+      "start": 1728383049197,
+      "end": 1728383049197,
       "order": "pre"
     },
     {
       "name": "content-slot",
-      "start": 1727667729426,
-      "end": 1727667729426,
+      "start": 1728383049197,
+      "end": 1728383049197,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1727667729426,
-      "end": 1727667729426,
+      "start": 1728383049197,
+      "end": 1728383049197,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1727667729426,
-      "end": 1727667729426,
+      "start": 1728383049197,
+      "end": 1728383049197,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1727667729426,
-      "end": 1727667729426,
+      "start": 1728383049197,
+      "end": 1728383049197,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1727667729426,
-      "end": 1727667729426,
+      "start": 1728383049197,
+      "end": 1728383049197,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1727667729426,
-      "end": 1727667729426,
+      "start": 1728383049197,
+      "end": 1728383049197,
       "order": "normal"
     },
     {
       "name": "vite:vue",
       "result": "import _sfc_main from \"/home/jes/dealornodeal_web/pages/user/form/[id].vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/home/jes/dealornodeal_web/pages/user/form/[id].vue?vue&type=script&setup=true&lang.ts\";\nexport default _sfc_main;\n",
-      "start": 1727667729426,
-      "end": 1727667729605,
+      "start": 1728383049197,
+      "end": 1728383049350,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -74,129 +74,129 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1727667729605,
-      "end": 1727667729605,
+      "start": 1728383049351,
+      "end": 1728383049351,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1727667729606,
-      "end": 1727667729606,
+      "start": 1728383049351,
+      "end": 1728383049351,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1727667729606,
-      "end": 1727667729606,
+      "start": 1728383049351,
+      "end": 1728383049351,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1727667729606,
-      "end": 1727667729606,
+      "start": 1728383049351,
+      "end": 1728383049351,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1727667729607,
-      "end": 1727667729607,
+      "start": 1728383049352,
+      "end": 1728383049353,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1727667729607,
-      "end": 1727667729607,
+      "start": 1728383049353,
+      "end": 1728383049353,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1727667729607,
-      "end": 1727667729607,
+      "start": 1728383049353,
+      "end": 1728383049353,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1727667729607,
-      "end": 1727667729607,
+      "start": 1728383049353,
+      "end": 1728383049353,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1727667729608,
-      "end": 1727667729608,
+      "start": 1728383049353,
+      "end": 1728383049353,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1727667729608,
-      "end": 1727667729608,
+      "start": 1728383049354,
+      "end": 1728383049354,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1727667729608,
-      "end": 1727667729608,
+      "start": 1728383049354,
+      "end": 1728383049354,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1727667729608,
-      "end": 1727667729608,
+      "start": 1728383049354,
+      "end": 1728383049354,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1727667729608,
-      "end": 1727667729608,
+      "start": 1728383049354,
+      "end": 1728383049354,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1727667729609,
-      "end": 1727667729609,
+      "start": 1728383049354,
+      "end": 1728383049354,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1727667729609,
-      "end": 1727667729609,
+      "start": 1728383049354,
+      "end": 1728383049354,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1727667729609,
-      "end": 1727667729609,
+      "start": 1728383049355,
+      "end": 1728383049355,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1727667729610,
-      "end": 1727667729610,
+      "start": 1728383049355,
+      "end": 1728383049356,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1727667729610,
-      "end": 1727667729610,
+      "start": 1728383049356,
+      "end": 1728383049356,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1727667729611,
-      "end": 1727667729614,
+      "start": 1728383049357,
+      "end": 1728383049359,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1727667729614,
-      "end": 1727667729614,
+      "start": 1728383049359,
+      "end": 1728383049359,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
       "result": "export { default } from \"/home/jes/dealornodeal_web/pages/user/form/[id].vue?macro=true&vue&type=script&setup=true&lang.ts\"",
-      "start": 1727667729615,
-      "end": 1727667729616,
+      "start": 1728383049360,
+      "end": 1728383049360,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -209,38 +209,38 @@
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1727667729616,
-      "end": 1727667729616,
+      "start": 1728383049361,
+      "end": 1728383049361,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1727667729616,
-      "end": 1727667729616,
+      "start": 1728383049361,
+      "end": 1728383049361,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1727667729617,
-      "end": 1727667729617,
+      "start": 1728383049361,
+      "end": 1728383049361,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1727667729617,
-      "end": 1727667729617,
+      "start": 1728383049361,
+      "end": 1728383049361,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1727667729617,
-      "end": 1727667729617,
+      "start": 1728383049361,
+      "end": 1728383049362,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1727667729617,
-      "end": 1727667729617,
+      "start": 1728383049362,
+      "end": 1728383049362,
       "order": "normal"
     }
   ]

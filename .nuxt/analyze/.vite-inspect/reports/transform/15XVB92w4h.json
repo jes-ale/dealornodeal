@@ -4,232 +4,232 @@
     {
       "name": "virtual",
       "result": "export default {\n  \"404\": () => import(\"/home/jes/dealornodeal_web/layouts/404.vue\").then(m => m.default || m),\n  default: () => import(\"/home/jes/dealornodeal_web/layouts/default.vue\").then(m => m.default || m),\n  main: () => import(\"/home/jes/dealornodeal_web/layouts/main.vue\").then(m => m.default || m),\n  print: () => import(\"/home/jes/dealornodeal_web/layouts/print.vue\").then(m => m.default || m),\n  website: () => import(\"/home/jes/dealornodeal_web/layouts/website.vue\").then(m => m.default || m)\n}",
-      "start": 1727667729168,
-      "end": 1727667729168,
+      "start": 1728383048926,
+      "end": 1728383048926,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1727667729169,
-      "end": 1727667729169,
+      "start": 1728383048927,
+      "end": 1728383048927,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1727667729169,
-      "end": 1727667729169,
+      "start": 1728383048927,
+      "end": 1728383048927,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1727667729169,
-      "end": 1727667729170,
+      "start": 1728383048927,
+      "end": 1728383048927,
       "order": "pre"
     },
     {
       "name": "content-slot",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048927,
+      "end": 1728383048927,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048927,
+      "end": 1728383048927,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048927,
+      "end": 1728383048927,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048927,
+      "end": 1728383048927,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048927,
+      "end": 1728383048927,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048927,
+      "end": 1728383048927,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048927,
+      "end": 1728383048927,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048927,
+      "end": 1728383048927,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048927,
+      "end": 1728383048927,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048927,
+      "end": 1728383048927,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048927,
+      "end": 1728383048927,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048927,
+      "end": 1728383048928,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048928,
+      "end": 1728383048928,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048928,
+      "end": 1728383048928,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048928,
+      "end": 1728383048928,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048928,
+      "end": 1728383048928,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048928,
+      "end": 1728383048928,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048928,
+      "end": 1728383048928,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048928,
+      "end": 1728383048928,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048928,
+      "end": 1728383048928,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048928,
+      "end": 1728383048928,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048928,
+      "end": 1728383048928,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048928,
+      "end": 1728383048928,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048928,
+      "end": 1728383048928,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1727667729170,
-      "end": 1727667729170,
+      "start": 1728383048928,
+      "end": 1728383048928,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1727667729170,
-      "end": 1727667729171,
+      "start": 1728383048928,
+      "end": 1728383048928,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1727667729171,
-      "end": 1727667729171,
+      "start": 1728383048928,
+      "end": 1728383048928,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1727667729171,
-      "end": 1727667729171,
+      "start": 1728383048928,
+      "end": 1728383048928,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1727667729171,
-      "end": 1727667729171,
+      "start": 1728383048928,
+      "end": 1728383048929,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1727667729171,
-      "end": 1727667729171,
+      "start": 1728383048929,
+      "end": 1728383048929,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1727667729171,
-      "end": 1727667729171,
+      "start": 1728383048929,
+      "end": 1728383048929,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1727667729171,
-      "end": 1727667729171,
+      "start": 1728383048929,
+      "end": 1728383048929,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
       "result": "import { __vitePreload } from \"\u0000vite/preload-helper.js\";export default {\n  \"404\": () => __vitePreload(() => import(\"/home/jes/dealornodeal_web/layouts/404.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m),\n  default: () => __vitePreload(() => import(\"/home/jes/dealornodeal_web/layouts/default.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m),\n  main: () => __vitePreload(() => import(\"/home/jes/dealornodeal_web/layouts/main.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m),\n  print: () => __vitePreload(() => import(\"/home/jes/dealornodeal_web/layouts/print.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m),\n  website: () => __vitePreload(() => import(\"/home/jes/dealornodeal_web/layouts/website.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n}",
-      "start": 1727667729171,
-      "end": 1727667729171,
+      "start": 1728383048929,
+      "end": 1728383048929,
       "order": "normal",
       "sourcemaps": null
     },
     {
       "name": "vite:reporter",
-      "start": 1727667729171,
-      "end": 1727667729171,
+      "start": 1728383048929,
+      "end": 1728383048929,
       "order": "normal"
     }
   ]

@@ -4,69 +4,69 @@
     {
       "name": "vite:load-fallback",
       "result": "<script setup>\nimport { Icon } from '@iconify/vue'\nimport { usePocketBase } from '@/composables/usePocketBase';\nimport Avatar from '~/components/Blocks/Avatar.vue';\nimport Breadcrumb from '~/components/Blocks/Breadcrumb.vue';\nimport InternalUsers from '~/components/Blocks/InternalUsers.vue';\nimport { EventBus } from '~/event-bus.ts';\n\nconst { pb, user, isLoggedIn, logout } = usePocketBase();\nconst isMenuOpen = ref(false);\nconst searchQuery = ref('');\n\nfunction toggleMenu() {\n    isMenuOpen.value = !isMenuOpen.value;\n}\n\nconst avatar = ref(\"\")\nconst roles = ref(\"\")\n\nconst router = useRouter()\nconst goback = () => {\n    router.back()\n};\n\nwatch(user, async () => {\n    try {\n        if (isLoggedIn && user.value) {\n            EventBus.emit('loading', { show: true });\n            const record = await pb.collection(user?.value.collectionName).getOne(user.value.id, {\n                expand: 'roles',\n                requestKey: \"header_watch_auth\",\n            });\n            let url = pb.files.getUrl(record, record.avatar);\n            avatar.value = url\n            let arrayRoles = []\n            for (let id of record.roles) {\n                const rol = await pb.collection('roles').getOne(id)\n                arrayRoles.push(rol.name)\n            }\n            roles.value = arrayRoles.join(', ')\n        }\n    } catch (e) {\n        console.error(e)\n    } finally {\n        EventBus.emit('loading', { show: false });\n    }\n})\n</script>\n\n<template>\n    <header\n        class=\"shadow-lg form-wrapper bg-opacity-25 bg-white py-2 px-4 border-b border-black flex items-center justify-between w-full h-20\">\n        <!-- User Information -->\n        <div class=\"flex items-center space-x-2\">\n            <button @click=\"goback\"\n                class=\"p-2 h-full w-auto flex space-x-1 items-center justify-between border border-black hover:bg-rose-100\">\n                <Icon icon=\"carbon:caret-left\" class=\"\" />\n            </button>\n        </div>\n        <!-- Breadcrumb -->\n        <div class=\"flex w-full\">\n            <Breadcrumb />\n        </div>\n\n        <!-- Account Actions Menu -->\n        <div class=\"flex items-center space-x-2 justify-end w-full\">\n            <div class=\"\">\n                <span class=\"text-lg font-bold block\">{{ user?.username }}</span>\n                <span class=\"text-sm font-light block\">{{ roles }}</span>\n            </div>\n\n            <div class=\"relative\">\n                <img :src=\"avatar\" class=\"w-16 h-16 rounded-full shadow-md border border-neutral-900 cursor-pointer\"\n                    @click=\"toggleMenu\" />\n                <div v-show=\"isMenuOpen\" @click=\"toggleMenu\"\n                    class=\"origin-top-right absolute right-0 mt-0 w-48 shadow-lg bg-rose-100 ring-1 ring-black ring-opacity-5 divide-y divide-black border border-black\"\n                    role=\"menu\" aria-orientation=\"vertical\" aria-labelledby=\"user-menu\">\n                    <div class=\"py-1\" role=\"none\">\n                        <a href=\"#\" class=\"block px-4 py-2 text-sm text-neutral-900 hover:bg-rose-100\"\n                            role=\"menuitem\">Profile</a>\n                        <a href=\"#\" class=\"block px-4 py-2 text-sm text-neutral-900 hover:bg-rose-100\"\n                            role=\"menuitem\">Settings</a>\n                        <a href=\"#\" @click=\"logout\" class=\"block px-4 py-2 text-sm text-neutral-900 hover:bg-rose-100\"\n                            role=\"menuitem\">Logout</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </header>\n</template>\n\n<style scoped>\n/* Additional Tailwind classes or custom styles can be added here */\n</style>\n",
-      "start": 1727667729912,
-      "end": 1727667730224,
+      "start": 1728383049616,
+      "end": 1728383050001,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1727667730224,
-      "end": 1727667730224,
+      "start": 1728383050001,
+      "end": 1728383050001,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1727667730224,
-      "end": 1727667730224,
+      "start": 1728383050001,
+      "end": 1728383050001,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1727667730224,
-      "end": 1727667730224,
+      "start": 1728383050001,
+      "end": 1728383050001,
       "order": "pre"
     },
     {
       "name": "content-slot",
-      "start": 1727667730224,
-      "end": 1727667730224,
+      "start": 1728383050001,
+      "end": 1728383050001,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1727667730224,
-      "end": 1727667730224,
+      "start": 1728383050001,
+      "end": 1728383050001,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1727667730224,
-      "end": 1727667730224,
+      "start": 1728383050001,
+      "end": 1728383050001,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1727667730224,
-      "end": 1727667730224,
+      "start": 1728383050001,
+      "end": 1728383050001,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1727667730224,
-      "end": 1727667730224,
+      "start": 1728383050001,
+      "end": 1728383050001,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1727667730224,
-      "end": 1727667730224,
+      "start": 1728383050001,
+      "end": 1728383050001,
       "order": "normal"
     },
     {
       "name": "vite:vue",
       "result": "import { unref as _unref, createVNode as _createVNode, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, vShow as _vShow, withDirectives as _withDirectives, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-91b927f7\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"shadow-lg form-wrapper bg-opacity-25 bg-white py-2 px-4 border-b border-black flex items-center justify-between w-full h-20\" }\nconst _hoisted_2 = { class: \"flex items-center space-x-2\" }\nconst _hoisted_3 = { class: \"flex w-full\" }\nconst _hoisted_4 = { class: \"flex items-center space-x-2 justify-end w-full\" }\nconst _hoisted_5 = { class: \"\" }\nconst _hoisted_6 = { class: \"text-lg font-bold block\" }\nconst _hoisted_7 = { class: \"text-sm font-light block\" }\nconst _hoisted_8 = { class: \"relative\" }\nconst _hoisted_9 = [\"src\"]\nconst _hoisted_10 = {\n  class: \"py-1\",\n  role: \"none\"\n}\nconst _hoisted_11 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"a\", {\n  href: \"#\",\n  class: \"block px-4 py-2 text-sm text-neutral-900 hover:bg-rose-100\",\n  role: \"menuitem\"\n}, \"Profile\", -1))\nconst _hoisted_12 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"a\", {\n  href: \"#\",\n  class: \"block px-4 py-2 text-sm text-neutral-900 hover:bg-rose-100\",\n  role: \"menuitem\"\n}, \"Settings\", -1))\n\nimport { Icon } from '@iconify/vue'\nimport { usePocketBase } from '@/composables/usePocketBase';\nimport Avatar from '~/components/Blocks/Avatar.vue';\nimport Breadcrumb from '~/components/Blocks/Breadcrumb.vue';\nimport InternalUsers from '~/components/Blocks/InternalUsers.vue';\nimport { EventBus } from '~/event-bus.ts';\n\n\nconst _sfc_main = {\n  __name: 'Header',\n  setup(__props) {\n\nconst { pb, user, isLoggedIn, logout } = usePocketBase();\nconst isMenuOpen = ref(false);\nconst searchQuery = ref('');\n\nfunction toggleMenu() {\n    isMenuOpen.value = !isMenuOpen.value;\n}\n\nconst avatar = ref(\"\")\nconst roles = ref(\"\")\n\nconst router = useRouter()\nconst goback = () => {\n    router.back()\n};\n\nwatch(user, async () => {\n    try {\n        if (isLoggedIn && user.value) {\n            EventBus.emit('loading', { show: true });\n            const record = await pb.collection(user?.value.collectionName).getOne(user.value.id, {\n                expand: 'roles',\n                requestKey: \"header_watch_auth\",\n            });\n            let url = pb.files.getUrl(record, record.avatar);\n            avatar.value = url\n            let arrayRoles = []\n            for (let id of record.roles) {\n                const rol = await pb.collection('roles').getOne(id)\n                arrayRoles.push(rol.name)\n            }\n            roles.value = arrayRoles.join(', ')\n        }\n    } catch (e) {\n        console.error(e)\n    } finally {\n        EventBus.emit('loading', { show: false });\n    }\n})\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(\"header\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"button\", {\n        onClick: goback,\n        class: \"p-2 h-full w-auto flex space-x-1 items-center justify-between border border-black hover:bg-rose-100\"\n      }, [\n        _createVNode(_unref(Icon), {\n          icon: \"carbon:caret-left\",\n          class: \"\"\n        })\n      ])\n    ]),\n    _createElementVNode(\"div\", _hoisted_3, [\n      _createVNode(Breadcrumb)\n    ]),\n    _createElementVNode(\"div\", _hoisted_4, [\n      _createElementVNode(\"div\", _hoisted_5, [\n        _createElementVNode(\"span\", _hoisted_6, _toDisplayString(_unref(user)?.username), 1),\n        _createElementVNode(\"span\", _hoisted_7, _toDisplayString(_unref(roles)), 1)\n      ]),\n      _createElementVNode(\"div\", _hoisted_8, [\n        _createElementVNode(\"img\", {\n          src: _unref(avatar),\n          class: \"w-16 h-16 rounded-full shadow-md border border-neutral-900 cursor-pointer\",\n          onClick: toggleMenu\n        }, null, 8, _hoisted_9),\n        _withDirectives(_createElementVNode(\"div\", {\n          onClick: toggleMenu,\n          class: \"origin-top-right absolute right-0 mt-0 w-48 shadow-lg bg-rose-100 ring-1 ring-black ring-opacity-5 divide-y divide-black border border-black\",\n          role: \"menu\",\n          \"aria-orientation\": \"vertical\",\n          \"aria-labelledby\": \"user-menu\"\n        }, [\n          _createElementVNode(\"div\", _hoisted_10, [\n            _hoisted_11,\n            _hoisted_12,\n            _createElementVNode(\"a\", {\n              href: \"#\",\n              onClick: _cache[0] || (_cache[0] = (...args) => (_unref(logout) && _unref(logout)(...args))),\n              class: \"block px-4 py-2 text-sm text-neutral-900 hover:bg-rose-100\",\n              role: \"menuitem\"\n            }, \"Logout\")\n          ])\n        ], 512), [\n          [_vShow, _unref(isMenuOpen)]\n        ])\n      ])\n    ])\n  ]))\n}\n}\n\n}\n\n\nimport \"/home/jes/dealornodeal_web/components/Blocks/Header.vue?vue&type=style&index=0&scoped=91b927f7&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-91b927f7\"]])",
-      "start": 1727667730224,
-      "end": 1727667730227,
+      "start": 1728383050001,
+      "end": 1728383050004,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -74,117 +74,117 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050004,
+      "end": 1728383050004,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050004,
+      "end": 1728383050004,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050004,
+      "end": 1728383050004,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050004,
+      "end": 1728383050004,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050004,
+      "end": 1728383050004,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050004,
+      "end": 1728383050004,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050004,
+      "end": 1728383050004,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050004,
+      "end": 1728383050004,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050004,
+      "end": 1728383050004,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050004,
+      "end": 1728383050004,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050004,
+      "end": 1728383050004,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050004,
+      "end": 1728383050004,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050004,
+      "end": 1728383050004,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050004,
+      "end": 1728383050004,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050004,
+      "end": 1728383050004,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050004,
+      "end": 1728383050004,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050004,
+      "end": 1728383050005,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1727667730227,
-      "end": 1727667730227,
+      "start": 1728383050005,
+      "end": 1728383050005,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { ref, watch } from 'vue';\nimport { useRouter } from '#app/composables/router';\nimport { unref as _unref, createVNode as _createVNode, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, vShow as _vShow, withDirectives as _withDirectives, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-91b927f7\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"shadow-lg form-wrapper bg-opacity-25 bg-white py-2 px-4 border-b border-black flex items-center justify-between w-full h-20\" }\nconst _hoisted_2 = { class: \"flex items-center space-x-2\" }\nconst _hoisted_3 = { class: \"flex w-full\" }\nconst _hoisted_4 = { class: \"flex items-center space-x-2 justify-end w-full\" }\nconst _hoisted_5 = { class: \"\" }\nconst _hoisted_6 = { class: \"text-lg font-bold block\" }\nconst _hoisted_7 = { class: \"text-sm font-light block\" }\nconst _hoisted_8 = { class: \"relative\" }\nconst _hoisted_9 = [\"src\"]\nconst _hoisted_10 = {\n  class: \"py-1\",\n  role: \"none\"\n}\nconst _hoisted_11 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"a\", {\n  href: \"#\",\n  class: \"block px-4 py-2 text-sm text-neutral-900 hover:bg-rose-100\",\n  role: \"menuitem\"\n}, \"Profile\", -1))\nconst _hoisted_12 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"a\", {\n  href: \"#\",\n  class: \"block px-4 py-2 text-sm text-neutral-900 hover:bg-rose-100\",\n  role: \"menuitem\"\n}, \"Settings\", -1))\n\nimport { Icon } from '@iconify/vue'\nimport { usePocketBase } from '@/composables/usePocketBase';\nimport Avatar from '~/components/Blocks/Avatar.vue';\nimport Breadcrumb from '~/components/Blocks/Breadcrumb.vue';\nimport InternalUsers from '~/components/Blocks/InternalUsers.vue';\nimport { EventBus } from '~/event-bus.ts';\n\n\nconst _sfc_main = {\n  __name: 'Header',\n  setup(__props) {\n\nconst { pb, user, isLoggedIn, logout } = usePocketBase();\nconst isMenuOpen = ref(false);\nconst searchQuery = ref('');\n\nfunction toggleMenu() {\n    isMenuOpen.value = !isMenuOpen.value;\n}\n\nconst avatar = ref(\"\")\nconst roles = ref(\"\")\n\nconst router = useRouter()\nconst goback = () => {\n    router.back()\n};\n\nwatch(user, async () => {\n    try {\n        if (isLoggedIn && user.value) {\n            EventBus.emit('loading', { show: true });\n            const record = await pb.collection(user?.value.collectionName).getOne(user.value.id, {\n                expand: 'roles',\n                requestKey: \"header_watch_auth\",\n            });\n            let url = pb.files.getUrl(record, record.avatar);\n            avatar.value = url\n            let arrayRoles = []\n            for (let id of record.roles) {\n                const rol = await pb.collection('roles').getOne(id)\n                arrayRoles.push(rol.name)\n            }\n            roles.value = arrayRoles.join(', ')\n        }\n    } catch (e) {\n        console.error(e)\n    } finally {\n        EventBus.emit('loading', { show: false });\n    }\n})\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(\"header\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"button\", {\n        onClick: goback,\n        class: \"p-2 h-full w-auto flex space-x-1 items-center justify-between border border-black hover:bg-rose-100\"\n      }, [\n        _createVNode(_unref(Icon), {\n          icon: \"carbon:caret-left\",\n          class: \"\"\n        })\n      ])\n    ]),\n    _createElementVNode(\"div\", _hoisted_3, [\n      _createVNode(Breadcrumb)\n    ]),\n    _createElementVNode(\"div\", _hoisted_4, [\n      _createElementVNode(\"div\", _hoisted_5, [\n        _createElementVNode(\"span\", _hoisted_6, _toDisplayString(_unref(user)?.username), 1),\n        _createElementVNode(\"span\", _hoisted_7, _toDisplayString(_unref(roles)), 1)\n      ]),\n      _createElementVNode(\"div\", _hoisted_8, [\n        _createElementVNode(\"img\", {\n          src: _unref(avatar),\n          class: \"w-16 h-16 rounded-full shadow-md border border-neutral-900 cursor-pointer\",\n          onClick: toggleMenu\n        }, null, 8, _hoisted_9),\n        _withDirectives(_createElementVNode(\"div\", {\n          onClick: toggleMenu,\n          class: \"origin-top-right absolute right-0 mt-0 w-48 shadow-lg bg-rose-100 ring-1 ring-black ring-opacity-5 divide-y divide-black border border-black\",\n          role: \"menu\",\n          \"aria-orientation\": \"vertical\",\n          \"aria-labelledby\": \"user-menu\"\n        }, [\n          _createElementVNode(\"div\", _hoisted_10, [\n            _hoisted_11,\n            _hoisted_12,\n            _createElementVNode(\"a\", {\n              href: \"#\",\n              onClick: _cache[0] || (_cache[0] = (...args) => (_unref(logout) && _unref(logout)(...args))),\n              class: \"block px-4 py-2 text-sm text-neutral-900 hover:bg-rose-100\",\n              role: \"menuitem\"\n            }, \"Logout\")\n          ])\n        ], 512), [\n          [_vShow, _unref(isMenuOpen)]\n        ])\n      ])\n    ])\n  ]))\n}\n}\n\n}\n\n\nimport \"/home/jes/dealornodeal_web/components/Blocks/Header.vue?vue&type=style&index=0&scoped=91b927f7&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-91b927f7\"]])",
-      "start": 1727667730227,
-      "end": 1727667730229,
+      "start": 1728383050005,
+      "end": 1728383050006,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -197,50 +197,50 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1727667730229,
-      "end": 1727667730229,
+      "start": 1728383050006,
+      "end": 1728383050006,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1727667730229,
-      "end": 1727667730229,
+      "start": 1728383050006,
+      "end": 1728383050006,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1727667730229,
-      "end": 1727667730229,
+      "start": 1728383050006,
+      "end": 1728383050006,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1727667730229,
-      "end": 1727667730229,
+      "start": 1728383050006,
+      "end": 1728383050006,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1727667730229,
-      "end": 1727667730229,
+      "start": 1728383050006,
+      "end": 1728383050006,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1727667730229,
-      "end": 1727667730229,
+      "start": 1728383050006,
+      "end": 1728383050006,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1727667730229,
-      "end": 1727667730229,
+      "start": 1728383050006,
+      "end": 1728383050006,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1727667730229,
-      "end": 1727667730229,
+      "start": 1728383050006,
+      "end": 1728383050006,
       "order": "normal"
     }
   ]

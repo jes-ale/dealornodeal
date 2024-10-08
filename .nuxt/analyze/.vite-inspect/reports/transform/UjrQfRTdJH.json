@@ -4,50 +4,50 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { createVNode as _createVNode, unref as _unref, renderSlot as _renderSlot, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx } from \"vue\"\n\nconst _hoisted_1 = { class: \"relative flex flex-col no-scrollbar overflow-y-scroll h-screen w-screen text-sm bg-rose-200 text-neutral-900 font-sans subpixel-antialiased slashed-zero diagonal-fractions\" }\nconst _hoisted_2 = {\n  key: 0,\n  as: \"div\",\n  class: \"w-full h-full\"\n}\nconst _hoisted_3 = {\n  key: 1,\n  as: \"div\",\n  class: \"w-full h-full\"\n}\nconst _hoisted_4 = { class: \"w-full h-full flex\" }\nconst _hoisted_5 = { class: \"flex flex-col space-y-2 items-center justify-center w-full h-full px-16\" }\nconst _hoisted_6 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"font-bold bg-opacity-25 h-12 w-full lg:w-1/5 cursor-pointer flex space-x-2 items-center justify-center transform transition-transform hover:text-rose-500 hover:font-bold hover:scale-90\" }, \" ~ 401 Access Denied ~ \", -1)\nconst _hoisted_7 = {\n  to: \"/contact\",\n  class: \"bg-opacity-25 bg-neutral-50 h-12 w-full lg:w-1/5 cursor-pointer flex space-x-2 items-center justify-center bg-light-200 border border-black transform transition-transform hover:text-rose-500 hover:font-bold hover:scale-90\"\n}\nconst _hoisted_8 = {\n  to: \"/about\",\n  class: \"bg-opacity-25 bg-neutral-50 h-12 w-full lg:w-1/5 cursor-pointer flex space-x-2 items-center justify-center bg-light-200 border border-black transform transition-transform hover:text-rose-500 hover:font-bold hover:scale-90\"\n}\n\nimport { Icon } from '@iconify/vue'\nimport Loader from '~/components/Loader.vue';\nimport Toast from '~/components/Toast.vue';\nimport Header from '~/components/Blocks/Header.vue';\nimport { EventBus } from '~/event-bus.ts';\nimport { ref, computed, onMounted, onBeforeMount } from 'vue';\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'default',\n  setup(__props) {\n\nconst { isLoggedIn } = usePocketBase()\n\nconst { start } = usePocketBase();\nonBeforeMount(async () => {\n  try {\n    EventBus.emit('loading', { show: true });\n    await start()\n  } catch (error) {\n    console.error('Error Loading Auth:', error);\n  } finally {\n    EventBus.emit('loading', { show: false });\n  }\n})\n\nconst { t } = useI18n()\n\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")!\n\n  return (_openBlock(), _createElementBlock(\"main\", _hoisted_1, [\n    _createVNode(Toast),\n    _createVNode(Loader),\n    (_unref(isLoggedIn))\n      ? (_openBlock(), _createElementBlock(\"section\", _hoisted_2, [\n          _createVNode(Header, { class: \"w-screen h-auto\" }),\n          _renderSlot(_ctx.$slots, \"default\")\n        ]))\n      : (_openBlock(), _createElementBlock(\"section\", _hoisted_3, [\n          _createElementVNode(\"div\", _hoisted_4, [\n            _createElementVNode(\"div\", _hoisted_5, [\n              _hoisted_6,\n              _createVNode(_component_NuxtLink, {\n                to: \"/login\",\n                class: \"bg-opacity-25 bg-neutral-50 h-12 w-full lg:w-1/5 cursor-pointer flex space-x-2 items-center justify-center bg-light-200 border border-black transform transition-transform hover:text-rose-500 hover:font-bold hover:scale-90\"\n              }, {\n                default: _withCtx(() => [\n                  _createElementVNode(\"span\", null, _toDisplayString(_unref(t)('Access')), 1),\n                  _createVNode(_unref(Icon), { icon: \"mdi:terminal\" })\n                ]),\n                _: 1\n              }),\n              _createElementVNode(\"div\", _hoisted_7, [\n                _createElementVNode(\"span\", null, _toDisplayString(_unref(t)('Contact')), 1),\n                _createVNode(_unref(Icon), {\n                  icon: \"mdi:send\",\n                  class: \"\"\n                })\n              ]),\n              _createElementVNode(\"div\", _hoisted_8, [\n                _createElementVNode(\"span\", null, _toDisplayString(_unref(t)('About')), 1),\n                _createVNode(_unref(Icon), {\n                  icon: \"mdi:about\",\n                  class: \"\"\n                })\n              ])\n            ])\n          ])\n        ]))\n  ]))\n}\n}\n\n})",
-      "start": 1727667730136,
-      "end": 1727667730136
+      "start": 1728383049643,
+      "end": 1728383049643
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1727667730136,
-      "end": 1727667730136,
+      "start": 1728383049643,
+      "end": 1728383049643,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1727667730136,
-      "end": 1727667730136,
+      "start": 1728383049643,
+      "end": 1728383049643,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1727667730136,
-      "end": 1727667730136,
+      "start": 1728383049643,
+      "end": 1728383049643,
       "order": "pre"
     },
     {
       "name": "content-slot",
-      "start": 1727667730136,
-      "end": 1727667730136,
+      "start": 1728383049643,
+      "end": 1728383049643,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1727667730136,
-      "end": 1727667730136,
+      "start": 1728383049643,
+      "end": 1728383049643,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1727667730136,
-      "end": 1727667730136,
+      "start": 1728383049643,
+      "end": 1728383049643,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { createVNode as _createVNode, unref as _unref, renderSlot as _renderSlot, openBlock as _openBlock, createElementBlock as _createElementBlock, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx } from \"vue\";\nconst _hoisted_1 = { class: \"relative flex flex-col no-scrollbar overflow-y-scroll h-screen w-screen text-sm bg-rose-200 text-neutral-900 font-sans subpixel-antialiased slashed-zero diagonal-fractions\" };\nconst _hoisted_2 = {\n  key: 0,\n  as: \"div\",\n  class: \"w-full h-full\"\n};\nconst _hoisted_3 = {\n  key: 1,\n  as: \"div\",\n  class: \"w-full h-full\"\n};\nconst _hoisted_4 = { class: \"w-full h-full flex\" };\nconst _hoisted_5 = { class: \"flex flex-col space-y-2 items-center justify-center w-full h-full px-16\" };\nconst _hoisted_6 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"font-bold bg-opacity-25 h-12 w-full lg:w-1/5 cursor-pointer flex space-x-2 items-center justify-center transform transition-transform hover:text-rose-500 hover:font-bold hover:scale-90\" }, \" ~ 401 Access Denied ~ \", -1);\nconst _hoisted_7 = {\n  to: \"/contact\",\n  class: \"bg-opacity-25 bg-neutral-50 h-12 w-full lg:w-1/5 cursor-pointer flex space-x-2 items-center justify-center bg-light-200 border border-black transform transition-transform hover:text-rose-500 hover:font-bold hover:scale-90\"\n};\nconst _hoisted_8 = {\n  to: \"/about\",\n  class: \"bg-opacity-25 bg-neutral-50 h-12 w-full lg:w-1/5 cursor-pointer flex space-x-2 items-center justify-center bg-light-200 border border-black transform transition-transform hover:text-rose-500 hover:font-bold hover:scale-90\"\n};\nimport { Icon } from \"@iconify/vue\";\nimport Loader from \"~/components/Loader.vue\";\nimport Toast from \"~/components/Toast.vue\";\nimport Header from \"~/components/Blocks/Header.vue\";\nimport { EventBus } from \"~/event-bus.ts\";\nimport { onBeforeMount } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"default\",\n  setup(__props) {\n    const { isLoggedIn } = usePocketBase();\n    const { start } = usePocketBase();\n    onBeforeMount(async () => {\n      try {\n        EventBus.emit(\"loading\", { show: true });\n        await start();\n      } catch (error) {\n        console.error(\"Error Loading Auth:\", error);\n      } finally {\n        EventBus.emit(\"loading\", { show: false });\n      }\n    });\n    const { t } = useI18n();\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = _resolveComponent(\"NuxtLink\");\n      return _openBlock(), _createElementBlock(\"main\", _hoisted_1, [\n        _createVNode(Toast),\n        _createVNode(Loader),\n        _unref(isLoggedIn) ? (_openBlock(), _createElementBlock(\"section\", _hoisted_2, [\n          _createVNode(Header, { class: \"w-screen h-auto\" }),\n          _renderSlot(_ctx.$slots, \"default\")\n        ])) : (_openBlock(), _createElementBlock(\"section\", _hoisted_3, [\n          _createElementVNode(\"div\", _hoisted_4, [\n            _createElementVNode(\"div\", _hoisted_5, [\n              _hoisted_6,\n              _createVNode(_component_NuxtLink, {\n                to: \"/login\",\n                class: \"bg-opacity-25 bg-neutral-50 h-12 w-full lg:w-1/5 cursor-pointer flex space-x-2 items-center justify-center bg-light-200 border border-black transform transition-transform hover:text-rose-500 hover:font-bold hover:scale-90\"\n              }, {\n                default: _withCtx(() => [\n                  _createElementVNode(\"span\", null, _toDisplayString(_unref(t)(\"Access\")), 1),\n                  _createVNode(_unref(Icon), { icon: \"mdi:terminal\" })\n                ]),\n                _: 1\n              }),\n              _createElementVNode(\"div\", _hoisted_7, [\n                _createElementVNode(\"span\", null, _toDisplayString(_unref(t)(\"Contact\")), 1),\n                _createVNode(_unref(Icon), {\n                  icon: \"mdi:send\",\n                  class: \"\"\n                })\n              ]),\n              _createElementVNode(\"div\", _hoisted_8, [\n                _createElementVNode(\"span\", null, _toDisplayString(_unref(t)(\"About\")), 1),\n                _createVNode(_unref(Icon), {\n                  icon: \"mdi:about\",\n                  class: \"\"\n                })\n              ])\n            ])\n          ])\n        ]))\n      ]);\n    };\n  }\n});\n",
-      "start": 1727667730136,
-      "end": 1727667730147,
+      "start": 1728383049643,
+      "end": 1728383049784,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -63,135 +63,135 @@
     },
     {
       "name": "vite:json",
-      "start": 1727667730147,
-      "end": 1727667730147,
+      "start": 1728383049784,
+      "end": 1728383049784,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1727667730147,
-      "end": 1727667730147,
+      "start": 1728383049784,
+      "end": 1728383049784,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1727667730148,
-      "end": 1727667730148,
+      "start": 1728383049784,
+      "end": 1728383049784,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1727667730148,
-      "end": 1727667730148,
+      "start": 1728383049784,
+      "end": 1728383049784,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1727667730148,
-      "end": 1727667730148,
+      "start": 1728383049784,
+      "end": 1728383049784,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1727667730148,
-      "end": 1727667730148,
+      "start": 1728383049786,
+      "end": 1728383049786,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1727667730148,
-      "end": 1727667730148,
+      "start": 1728383049786,
+      "end": 1728383049786,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1727667730148,
-      "end": 1727667730148,
+      "start": 1728383049786,
+      "end": 1728383049786,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1727667730148,
-      "end": 1727667730149,
+      "start": 1728383049786,
+      "end": 1728383049786,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1727667730149,
-      "end": 1727667730149,
+      "start": 1728383049786,
+      "end": 1728383049786,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1727667730149,
-      "end": 1727667730149,
+      "start": 1728383049786,
+      "end": 1728383049787,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1727667730149,
-      "end": 1727667730149,
+      "start": 1728383049787,
+      "end": 1728383049787,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1727667730149,
-      "end": 1727667730149,
+      "start": 1728383049787,
+      "end": 1728383049787,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1727667730149,
-      "end": 1727667730149,
+      "start": 1728383049787,
+      "end": 1728383049787,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1727667730149,
-      "end": 1727667730149,
+      "start": 1728383049787,
+      "end": 1728383049787,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1727667730149,
-      "end": 1727667730149,
+      "start": 1728383049787,
+      "end": 1728383049787,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1727667730149,
-      "end": 1727667730149,
+      "start": 1728383049787,
+      "end": 1728383049787,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1727667730149,
-      "end": 1727667730150,
+      "start": 1728383049787,
+      "end": 1728383049787,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1727667730150,
-      "end": 1727667730150,
+      "start": 1728383049787,
+      "end": 1728383049787,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1727667730150,
-      "end": 1727667730150,
+      "start": 1728383049787,
+      "end": 1728383049787,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1727667730150,
-      "end": 1727667730150,
+      "start": 1728383049787,
+      "end": 1728383049787,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { usePocketBase } from '/home/jes/dealornodeal_web/composables/usePocketBase.ts';\nimport { useI18n } from '/home/jes/dealornodeal_web/node_modules/vue-i18n/dist/vue-i18n.mjs';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { createVNode as _createVNode, unref as _unref, renderSlot as _renderSlot, openBlock as _openBlock, createElementBlock as _createElementBlock, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx } from \"vue\";\nconst _hoisted_1 = { class: \"relative flex flex-col no-scrollbar overflow-y-scroll h-screen w-screen text-sm bg-rose-200 text-neutral-900 font-sans subpixel-antialiased slashed-zero diagonal-fractions\" };\nconst _hoisted_2 = {\n  key: 0,\n  as: \"div\",\n  class: \"w-full h-full\"\n};\nconst _hoisted_3 = {\n  key: 1,\n  as: \"div\",\n  class: \"w-full h-full\"\n};\nconst _hoisted_4 = { class: \"w-full h-full flex\" };\nconst _hoisted_5 = { class: \"flex flex-col space-y-2 items-center justify-center w-full h-full px-16\" };\nconst _hoisted_6 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"font-bold bg-opacity-25 h-12 w-full lg:w-1/5 cursor-pointer flex space-x-2 items-center justify-center transform transition-transform hover:text-rose-500 hover:font-bold hover:scale-90\" }, \" ~ 401 Access Denied ~ \", -1);\nconst _hoisted_7 = {\n  to: \"/contact\",\n  class: \"bg-opacity-25 bg-neutral-50 h-12 w-full lg:w-1/5 cursor-pointer flex space-x-2 items-center justify-center bg-light-200 border border-black transform transition-transform hover:text-rose-500 hover:font-bold hover:scale-90\"\n};\nconst _hoisted_8 = {\n  to: \"/about\",\n  class: \"bg-opacity-25 bg-neutral-50 h-12 w-full lg:w-1/5 cursor-pointer flex space-x-2 items-center justify-center bg-light-200 border border-black transform transition-transform hover:text-rose-500 hover:font-bold hover:scale-90\"\n};\nimport { Icon } from \"@iconify/vue\";\nimport Loader from \"~/components/Loader.vue\";\nimport Toast from \"~/components/Toast.vue\";\nimport Header from \"~/components/Blocks/Header.vue\";\nimport { EventBus } from \"~/event-bus.ts\";\nimport { onBeforeMount } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"default\",\n  setup(__props) {\n    const { isLoggedIn } = usePocketBase();\n    const { start } = usePocketBase();\n    onBeforeMount(async () => {\n      try {\n        EventBus.emit(\"loading\", { show: true });\n        await start();\n      } catch (error) {\n        console.error(\"Error Loading Auth:\", error);\n      } finally {\n        EventBus.emit(\"loading\", { show: false });\n      }\n    });\n    const { t } = useI18n();\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = _resolveComponent(\"NuxtLink\");\n      return _openBlock(), _createElementBlock(\"main\", _hoisted_1, [\n        _createVNode(Toast),\n        _createVNode(Loader),\n        _unref(isLoggedIn) ? (_openBlock(), _createElementBlock(\"section\", _hoisted_2, [\n          _createVNode(Header, { class: \"w-screen h-auto\" }),\n          _renderSlot(_ctx.$slots, \"default\")\n        ])) : (_openBlock(), _createElementBlock(\"section\", _hoisted_3, [\n          _createElementVNode(\"div\", _hoisted_4, [\n            _createElementVNode(\"div\", _hoisted_5, [\n              _hoisted_6,\n              _createVNode(_component_NuxtLink, {\n                to: \"/login\",\n                class: \"bg-opacity-25 bg-neutral-50 h-12 w-full lg:w-1/5 cursor-pointer flex space-x-2 items-center justify-center bg-light-200 border border-black transform transition-transform hover:text-rose-500 hover:font-bold hover:scale-90\"\n              }, {\n                default: _withCtx(() => [\n                  _createElementVNode(\"span\", null, _toDisplayString(_unref(t)(\"Access\")), 1),\n                  _createVNode(_unref(Icon), { icon: \"mdi:terminal\" })\n                ]),\n                _: 1\n              }),\n              _createElementVNode(\"div\", _hoisted_7, [\n                _createElementVNode(\"span\", null, _toDisplayString(_unref(t)(\"Contact\")), 1),\n                _createVNode(_unref(Icon), {\n                  icon: \"mdi:send\",\n                  class: \"\"\n                })\n              ]),\n              _createElementVNode(\"div\", _hoisted_8, [\n                _createElementVNode(\"span\", null, _toDisplayString(_unref(t)(\"About\")), 1),\n                _createVNode(_unref(Icon), {\n                  icon: \"mdi:about\",\n                  class: \"\"\n                })\n              ])\n            ])\n          ])\n        ]))\n      ]);\n    };\n  }\n});\n",
-      "start": 1727667730150,
-      "end": 1727667730156,
+      "start": 1728383049787,
+      "end": 1728383049791,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -204,51 +204,51 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1727667730156,
-      "end": 1727667730156,
+      "start": 1728383049793,
+      "end": 1728383049793,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1727667730158,
-      "end": 1727667730158,
+      "start": 1728383049793,
+      "end": 1728383049793,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1727667730158,
-      "end": 1727667730158,
+      "start": 1728383049793,
+      "end": 1728383049793,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1727667730158,
-      "end": 1727667730158,
+      "start": 1728383049794,
+      "end": 1728383049794,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
       "result": "import { default as __nuxt_component_0 } from \"/home/jes/dealornodeal_web/node_modules/nuxt/dist/app/components/nuxt-link\";\nimport { usePocketBase } from '/home/jes/dealornodeal_web/composables/usePocketBase.ts';\nimport { useI18n } from '/home/jes/dealornodeal_web/node_modules/vue-i18n/dist/vue-i18n.mjs';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { createVNode as _createVNode, unref as _unref, renderSlot as _renderSlot, openBlock as _openBlock, createElementBlock as _createElementBlock, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx } from \"vue\";\nconst _hoisted_1 = { class: \"relative flex flex-col no-scrollbar overflow-y-scroll h-screen w-screen text-sm bg-rose-200 text-neutral-900 font-sans subpixel-antialiased slashed-zero diagonal-fractions\" };\nconst _hoisted_2 = {\n  key: 0,\n  as: \"div\",\n  class: \"w-full h-full\"\n};\nconst _hoisted_3 = {\n  key: 1,\n  as: \"div\",\n  class: \"w-full h-full\"\n};\nconst _hoisted_4 = { class: \"w-full h-full flex\" };\nconst _hoisted_5 = { class: \"flex flex-col space-y-2 items-center justify-center w-full h-full px-16\" };\nconst _hoisted_6 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"font-bold bg-opacity-25 h-12 w-full lg:w-1/5 cursor-pointer flex space-x-2 items-center justify-center transform transition-transform hover:text-rose-500 hover:font-bold hover:scale-90\" }, \" ~ 401 Access Denied ~ \", -1);\nconst _hoisted_7 = {\n  to: \"/contact\",\n  class: \"bg-opacity-25 bg-neutral-50 h-12 w-full lg:w-1/5 cursor-pointer flex space-x-2 items-center justify-center bg-light-200 border border-black transform transition-transform hover:text-rose-500 hover:font-bold hover:scale-90\"\n};\nconst _hoisted_8 = {\n  to: \"/about\",\n  class: \"bg-opacity-25 bg-neutral-50 h-12 w-full lg:w-1/5 cursor-pointer flex space-x-2 items-center justify-center bg-light-200 border border-black transform transition-transform hover:text-rose-500 hover:font-bold hover:scale-90\"\n};\nimport { Icon } from \"@iconify/vue\";\nimport Loader from \"~/components/Loader.vue\";\nimport Toast from \"~/components/Toast.vue\";\nimport Header from \"~/components/Blocks/Header.vue\";\nimport { EventBus } from \"~/event-bus.ts\";\nimport { onBeforeMount } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"default\",\n  setup(__props) {\n    const { isLoggedIn } = usePocketBase();\n    const { start } = usePocketBase();\n    onBeforeMount(async () => {\n      try {\n        EventBus.emit(\"loading\", { show: true });\n        await start();\n      } catch (error) {\n        console.error(\"Error Loading Auth:\", error);\n      } finally {\n        EventBus.emit(\"loading\", { show: false });\n      }\n    });\n    const { t } = useI18n();\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = __nuxt_component_0;\n      return _openBlock(), _createElementBlock(\"main\", _hoisted_1, [\n        _createVNode(Toast),\n        _createVNode(Loader),\n        _unref(isLoggedIn) ? (_openBlock(), _createElementBlock(\"section\", _hoisted_2, [\n          _createVNode(Header, { class: \"w-screen h-auto\" }),\n          _renderSlot(_ctx.$slots, \"default\")\n        ])) : (_openBlock(), _createElementBlock(\"section\", _hoisted_3, [\n          _createElementVNode(\"div\", _hoisted_4, [\n            _createElementVNode(\"div\", _hoisted_5, [\n              _hoisted_6,\n              _createVNode(_component_NuxtLink, {\n                to: \"/login\",\n                class: \"bg-opacity-25 bg-neutral-50 h-12 w-full lg:w-1/5 cursor-pointer flex space-x-2 items-center justify-center bg-light-200 border border-black transform transition-transform hover:text-rose-500 hover:font-bold hover:scale-90\"\n              }, {\n                default: _withCtx(() => [\n                  _createElementVNode(\"span\", null, _toDisplayString(_unref(t)(\"Access\")), 1),\n                  _createVNode(_unref(Icon), { icon: \"mdi:terminal\" })\n                ]),\n                _: 1\n              }),\n              _createElementVNode(\"div\", _hoisted_7, [\n                _createElementVNode(\"span\", null, _toDisplayString(_unref(t)(\"Contact\")), 1),\n                _createVNode(_unref(Icon), {\n                  icon: \"mdi:send\",\n                  class: \"\"\n                })\n              ]),\n              _createElementVNode(\"div\", _hoisted_8, [\n                _createElementVNode(\"span\", null, _toDisplayString(_unref(t)(\"About\")), 1),\n                _createVNode(_unref(Icon), {\n                  icon: \"mdi:about\",\n                  class: \"\"\n                })\n              ])\n            ])\n          ])\n        ]))\n      ]);\n    };\n  }\n});\n",
-      "start": 1727667730158,
-      "end": 1727667730158,
+      "start": 1728383049794,
+      "end": 1728383049794,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1727667730159,
-      "end": 1727667730159,
+      "start": 1728383049795,
+      "end": 1728383049795,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1727667730159,
-      "end": 1727667730159,
+      "start": 1728383049795,
+      "end": 1728383049795,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1727667730159,
-      "end": 1727667730159,
+      "start": 1728383049795,
+      "end": 1728383049795,
       "order": "normal"
     }
   ]

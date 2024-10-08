@@ -4,69 +4,69 @@
     {
       "name": "vite:load-fallback",
       "result": "<script setup>\n\nconst { pb } = usePocketBase();\nconst props = defineProps({\n    label: String,\n    collection: String,\n    modelValue: [String, Number],\n});\n\nconst emits = defineEmits(['update:modelValue']);\n\nconst items = ref([]);\nconst selectedItem = ref(props.modelValue);\n\nonMounted(async () => {\n    const response = await pb.collection(props.collection).getFullList();\n    items.value = response;\n});\n\nwatch(selectedItem, (newValue) => {\n    emits('update:modelValue', newValue);\n});\n</script>\n\n<template>\n    <div class=\" p-4 mb-4\">\n        <label class=\"block mb-2\">{{ label }}</label>\n        <select v-model=\"selectedItem\" class=\"border border-black p-2 w-full\">\n            <option v-for=\"item in items\" :key=\"item.id\" :value=\"item.id\">\n                {{ item.name }}\n            </option>\n        </select>\n    </div>\n</template>\n\n<style scoped></style>\n",
-      "start": 1727667731264,
-      "end": 1727667731312,
+      "start": 1728383050949,
+      "end": 1728383050986,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1727667731312,
-      "end": 1727667731312,
+      "start": 1728383050986,
+      "end": 1728383050986,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1727667731312,
-      "end": 1727667731312,
+      "start": 1728383050986,
+      "end": 1728383050986,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1727667731312,
-      "end": 1727667731312,
+      "start": 1728383050986,
+      "end": 1728383050986,
       "order": "pre"
     },
     {
       "name": "content-slot",
-      "start": 1727667731312,
-      "end": 1727667731312,
+      "start": 1728383050986,
+      "end": 1728383050986,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1727667731312,
-      "end": 1727667731312,
+      "start": 1728383050986,
+      "end": 1728383050986,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1727667731312,
-      "end": 1727667731312,
+      "start": 1728383050986,
+      "end": 1728383050986,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1727667731312,
-      "end": 1727667731312,
+      "start": 1728383050986,
+      "end": 1728383050986,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1727667731312,
-      "end": 1727667731312,
+      "start": 1728383050986,
+      "end": 1728383050986,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1727667731312,
-      "end": 1727667731312,
+      "start": 1728383050986,
+      "end": 1728383050986,
       "order": "normal"
     },
     {
       "name": "vite:vue",
       "result": "import { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, isRef as _isRef, vModelSelect as _vModelSelect, withDirectives as _withDirectives } from \"vue\"\n\nconst _hoisted_1 = { class: \"p-4 mb-4\" }\nconst _hoisted_2 = { class: \"block mb-2\" }\nconst _hoisted_3 = [\"value\"]\n\n\nconst _sfc_main = {\n  __name: 'Many2OneField',\n  props: {\n    label: String,\n    collection: String,\n    modelValue: [String, Number],\n},\n  emits: ['update:modelValue'],\n  setup(__props, { emit: __emit }) {\n\n\nconst { pb } = usePocketBase();\nconst props = __props;\n\nconst emits = __emit;\n\nconst items = ref([]);\nconst selectedItem = ref(props.modelValue);\n\nonMounted(async () => {\n    const response = await pb.collection(props.collection).getFullList();\n    items.value = response;\n});\n\nwatch(selectedItem, (newValue) => {\n    emits('update:modelValue', newValue);\n});\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"label\", _hoisted_2, _toDisplayString(__props.label), 1),\n    _withDirectives(_createElementVNode(\"select\", {\n      \"onUpdate:modelValue\": _cache[0] || (_cache[0] = $event => (_isRef(selectedItem) ? (selectedItem).value = $event : null)),\n      class: \"border border-black p-2 w-full\"\n    }, [\n      (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(items), (item) => {\n        return (_openBlock(), _createElementBlock(\"option\", {\n          key: item.id,\n          value: item.id\n        }, _toDisplayString(item.name), 9, _hoisted_3))\n      }), 128))\n    ], 512), [\n      [_vModelSelect, _unref(selectedItem)]\n    ])\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
-      "start": 1727667731312,
-      "end": 1727667731314,
+      "start": 1728383050986,
+      "end": 1728383050987,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -74,117 +74,117 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1727667731314,
-      "end": 1727667731314,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { usePocketBase } from '/home/jes/dealornodeal_web/composables/usePocketBase.ts';\nimport { ref, onMounted, watch } from 'vue';\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, isRef as _isRef, vModelSelect as _vModelSelect, withDirectives as _withDirectives } from \"vue\"\n\nconst _hoisted_1 = { class: \"p-4 mb-4\" }\nconst _hoisted_2 = { class: \"block mb-2\" }\nconst _hoisted_3 = [\"value\"]\n\n\nconst _sfc_main = {\n  __name: 'Many2OneField',\n  props: {\n    label: String,\n    collection: String,\n    modelValue: [String, Number],\n},\n  emits: ['update:modelValue'],\n  setup(__props, { emit: __emit }) {\n\n\nconst { pb } = usePocketBase();\nconst props = __props;\n\nconst emits = __emit;\n\nconst items = ref([]);\nconst selectedItem = ref(props.modelValue);\n\nonMounted(async () => {\n    const response = await pb.collection(props.collection).getFullList();\n    items.value = response;\n});\n\nwatch(selectedItem, (newValue) => {\n    emits('update:modelValue', newValue);\n});\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"label\", _hoisted_2, _toDisplayString(__props.label), 1),\n    _withDirectives(_createElementVNode(\"select\", {\n      \"onUpdate:modelValue\": _cache[0] || (_cache[0] = $event => (_isRef(selectedItem) ? (selectedItem).value = $event : null)),\n      class: \"border border-black p-2 w-full\"\n    }, [\n      (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(items), (item) => {\n        return (_openBlock(), _createElementBlock(\"option\", {\n          key: item.id,\n          value: item.id\n        }, _toDisplayString(item.name), 9, _hoisted_3))\n      }), 128))\n    ], 512), [\n      [_vModelSelect, _unref(selectedItem)]\n    ])\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
-      "start": 1727667731314,
-      "end": 1727667731315,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -197,50 +197,50 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1727667731315,
-      "end": 1727667731315,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1727667731315,
-      "end": 1727667731315,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1727667731315,
-      "end": 1727667731315,
+      "start": 1728383050988,
+      "end": 1728383050988,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1727667731315,
-      "end": 1727667731315,
+      "start": 1728383050988,
+      "end": 1728383050989,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1727667731315,
-      "end": 1727667731315,
+      "start": 1728383050989,
+      "end": 1728383050989,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1727667731315,
-      "end": 1727667731315,
+      "start": 1728383050989,
+      "end": 1728383050989,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1727667731315,
-      "end": 1727667731315,
+      "start": 1728383050989,
+      "end": 1728383050989,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1727667731315,
-      "end": 1727667731315,
+      "start": 1728383050989,
+      "end": 1728383050989,
       "order": "normal"
     }
   ]

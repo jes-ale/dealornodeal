@@ -1,1 +1,0 @@
-{"version":3,"file":"event-bus-1ebWZuYj.js","sources":["../../../../event-bus.ts"],"sourcesContent":["/*\n  The event bus handles the communication between components.\n*/\n\nimport mitt from 'mitt'\nexport const EventBus = mitt()\n"],"names":[],"mappings":";AAKO,MAAM,WAAW,KAAK;"}

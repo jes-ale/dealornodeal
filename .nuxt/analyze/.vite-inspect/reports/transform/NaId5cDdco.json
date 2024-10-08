@@ -4,50 +4,50 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { vModelText as _vModelText, createElementVNode as _createElementVNode, withDirectives as _withDirectives, unref as _unref, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, vModelSelect as _vModelSelect, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-7efb7493\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"flex w-full h-full justify-start items-center flex-col\" }\nconst _hoisted_2 = { class: \"flex justify-start items-center w-full\" }\nconst _hoisted_3 = { class: \"flex flex-col w-full\" }\nconst _hoisted_4 = [\"onUpdate:modelValue\"]\nconst _hoisted_5 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"option\", {\n  disabled: \"\",\n  value: \"\"\n}, \"Select field\", -1))\nconst _hoisted_6 = [\"value\"]\nconst _hoisted_7 = [\"onUpdate:modelValue\"]\nconst _hoisted_8 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"option\", { value: \"equals\" }, \"Equals\", -1))\nconst _hoisted_9 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"option\", { value: \"contains\" }, \"Contains\", -1))\nconst _hoisted_10 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"option\", { value: \"starts_with\" }, \"Starts with\", -1))\nconst _hoisted_11 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"option\", { value: \"ends_with\" }, \"Ends with\", -1))\nconst _hoisted_12 = [\n  _hoisted_8,\n  _hoisted_9,\n  _hoisted_10,\n  _hoisted_11\n]\nconst _hoisted_13 = [\"onUpdate:modelValue\"]\nconst _hoisted_14 = [\"onClick\"]\nconst _hoisted_15 = { class: \"min-w-full border-collapse\" }\nconst _hoisted_16 = [\"onClick\"]\n\nimport { ref, computed, onMounted } from 'vue';\nimport { usePocketBase } from '~/composables/usePocketBase';\nimport { EventBus } from '~/event-bus.ts';\nimport { useRouter } from 'vue-router';\nimport { Icon } from '@iconify/vue';\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ListView',\n  props: {\n  collection: {\n    type: String,\n    required: true,\n  },\n  fields: {\n    type: Array,\n    required: true,\n  },\n},\n  setup(__props) {\n\nconst props = __props;\n\nconst { pb } = usePocketBase();\nconst search = ref('');\nconst items = ref([]);\nconst filters = ref([]);\nconst router = useRouter();\n\nconst fetchItems = async () => {\n  EventBus.emit('loading', { show: true });\n  try {\n    const query = buildQuery();\n    const records = await pb.collection(props.collection).getFullList({ filter: query });\n    items.value = records;\n  } catch (error) {\n    console.error('Error fetching items:', error);\n  } finally {\n    EventBus.emit('loading', { show: false });\n  }\n};\n\nconst buildQuery = () => {\n  const queryParts = [];\n\n  if (search.value) {\n    queryParts.push(\n      visibleFields.value.map(field =>\n        `${field.field_name} ~ \"${search.value}\"`\n      ).join(' || ')\n    );\n  }\n\n  filters.value.forEach(filter => {\n    if (filter.field && filter.condition && filter.value) {\n      switch (filter.condition) {\n        case 'equals':\n          queryParts.push(`${filter.field} = \"${filter.value}\"`);\n          break;\n        case 'contains':\n          queryParts.push(`${filter.field} ~ \"${filter.value}\"`);\n          break;\n        case 'starts_with':\n          queryParts.push(`${filter.field} ~ \"^${filter.value}\"`);\n          break;\n        case 'ends_with':\n          queryParts.push(`${filter.field} ~ \"${filter.value}$\"`);\n          break;\n      }\n    }\n  });\n\n  return queryParts.length > 0 ? queryParts.join(' && ') : null;\n};\n\nconst addFilter = () => {\n  filters.value.push({ field: '', condition: 'equals', value: '' });\n};\n\nconst removeFilter = (index) => {\n  filters.value.splice(index, 1);\n};\n\nconst visibleFields = computed(() => props.fields.filter((field) => field.visible));\n\nconst route = useRoute();\n\nconst navigateToUpdate = (id: string) => {\n  const currentPath = route.path.split('/')[1]; // Get the first part of the URL path\n  router.push(`/${currentPath}/form/${id}`);\n};\n\nonMounted(fetchItems);\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _withDirectives(_createElementVNode(\"input\", {\n        type: \"text\",\n        \"onUpdate:modelValue\": _cache[0] || (_cache[0] = ($event: any) => ((search).value = $event)),\n        onInput: fetchItems,\n        placeholder: \"Search...\",\n        class: \"border-x border-black p-2 bg-rose-100 w-full\"\n      }, null, 544), [\n        [_vModelText, search.value]\n      ]),\n      _createElementVNode(\"button\", {\n        onClick: addFilter,\n        class: \"p-2 h-full w-auto\"\n      }, [\n        _createVNode(_unref(Icon), { icon: \"fluent:filter-add-20-filled\" })\n      ]),\n      _createElementVNode(\"button\", {\n        onClick: fetchItems,\n        class: \"border-x border-black p-2 h-full w-auto\"\n      }, [\n        _createVNode(_unref(Icon), { icon: \"carbon:query\" })\n      ])\n    ]),\n    _createElementVNode(\"div\", _hoisted_3, [\n      (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(filters.value, (filter, index) => {\n        return (_openBlock(), _createElementBlock(\"div\", {\n          key: index,\n          class: \"flex border-t border-black w-full\"\n        }, [\n          _withDirectives(_createElementVNode(\"select\", {\n            \"onUpdate:modelValue\": ($event: any) => ((filter.field) = $event),\n            class: \"border-r border-black p-2 bg-transparent w-full\"\n          }, [\n            _hoisted_5,\n            (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(__props.fields, (field) => {\n              return (_openBlock(), _createElementBlock(\"option\", {\n                key: field.id,\n                value: field.field_name\n              }, _toDisplayString(field.field_name), 9, _hoisted_6))\n            }), 128))\n          ], 8, _hoisted_4), [\n            [_vModelSelect, filter.field]\n          ]),\n          _withDirectives(_createElementVNode(\"select\", {\n            \"onUpdate:modelValue\": ($event: any) => ((filter.condition) = $event),\n            class: \"border-r border-black p-2 bg-transparent w-full\"\n          }, _hoisted_12, 8, _hoisted_7), [\n            [_vModelSelect, filter.condition]\n          ]),\n          _withDirectives(_createElementVNode(\"input\", {\n            type: \"text\",\n            \"onUpdate:modelValue\": ($event: any) => ((filter.value) = $event),\n            class: \"border-r border-black p-2 bg-rose-100 w-full\"\n          }, null, 8, _hoisted_13), [\n            [_vModelText, filter.value]\n          ]),\n          _createElementVNode(\"button\", {\n            onClick: ($event: any) => (removeFilter(index)),\n            class: \"p-2 w-full hover:bg-rose-100\"\n          }, \"Remove\", 8, _hoisted_14)\n        ]))\n      }), 128))\n    ]),\n    _createElementVNode(\"table\", _hoisted_15, [\n      _createElementVNode(\"thead\", null, [\n        _createElementVNode(\"tr\", null, [\n          (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(visibleFields.value, (field) => {\n            return (_openBlock(), _createElementBlock(\"th\", {\n              key: field.id,\n              class: \"border border-black p-2 bg-rose-100\"\n            }, _toDisplayString(field.field_name.charAt(0).toUpperCase() + field.field_name.slice(1)), 1))\n          }), 128))\n        ])\n      ]),\n      _createElementVNode(\"tbody\", null, [\n        (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(items.value, (item) => {\n          return (_openBlock(), _createElementBlock(\"tr\", {\n            key: item.id,\n            class: \"even:bg-rose-100\",\n            onClick: ($event: any) => (navigateToUpdate(item.id))\n          }, [\n            (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(visibleFields.value, (field) => {\n              return (_openBlock(), _createElementBlock(\"td\", {\n                key: field.id,\n                class: \"border border-black p-2\"\n              }, _toDisplayString(item[field.field_name]), 1))\n            }), 128))\n          ], 8, _hoisted_16))\n        }), 128))\n      ])\n    ])\n  ]))\n}\n}\n\n})",
-      "start": 1727667730599,
-      "end": 1727667730599
+      "start": 1728383050360,
+      "end": 1728383050360
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1727667730599,
-      "end": 1727667730599,
+      "start": 1728383050360,
+      "end": 1728383050360,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1727667730599,
-      "end": 1727667730599,
+      "start": 1728383050360,
+      "end": 1728383050360,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1727667730601,
-      "end": 1727667730601,
+      "start": 1728383050360,
+      "end": 1728383050360,
       "order": "pre"
     },
     {
       "name": "content-slot",
-      "start": 1727667730601,
-      "end": 1727667730601,
+      "start": 1728383050360,
+      "end": 1728383050360,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1727667730601,
-      "end": 1727667730601,
+      "start": 1728383050360,
+      "end": 1728383050360,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1727667730601,
-      "end": 1727667730601,
+      "start": 1728383050360,
+      "end": 1728383050360,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { vModelText as _vModelText, createElementVNode as _createElementVNode, withDirectives as _withDirectives, unref as _unref, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, vModelSelect as _vModelSelect, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-7efb7493\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"flex w-full h-full justify-start items-center flex-col\" };\nconst _hoisted_2 = { class: \"flex justify-start items-center w-full\" };\nconst _hoisted_3 = { class: \"flex flex-col w-full\" };\nconst _hoisted_4 = [\"onUpdate:modelValue\"];\nconst _hoisted_5 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ _createElementVNode(\"option\", {\n  disabled: \"\",\n  value: \"\"\n}, \"Select field\", -1));\nconst _hoisted_6 = [\"value\"];\nconst _hoisted_7 = [\"onUpdate:modelValue\"];\nconst _hoisted_8 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ _createElementVNode(\"option\", { value: \"equals\" }, \"Equals\", -1));\nconst _hoisted_9 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ _createElementVNode(\"option\", { value: \"contains\" }, \"Contains\", -1));\nconst _hoisted_10 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ _createElementVNode(\"option\", { value: \"starts_with\" }, \"Starts with\", -1));\nconst _hoisted_11 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ _createElementVNode(\"option\", { value: \"ends_with\" }, \"Ends with\", -1));\nconst _hoisted_12 = [\n  _hoisted_8,\n  _hoisted_9,\n  _hoisted_10,\n  _hoisted_11\n];\nconst _hoisted_13 = [\"onUpdate:modelValue\"];\nconst _hoisted_14 = [\"onClick\"];\nconst _hoisted_15 = { class: \"min-w-full border-collapse\" };\nconst _hoisted_16 = [\"onClick\"];\nimport { ref, computed, onMounted } from \"vue\";\nimport { usePocketBase } from \"~/composables/usePocketBase\";\nimport { EventBus } from \"~/event-bus.ts\";\nimport { useRouter } from \"vue-router\";\nimport { Icon } from \"@iconify/vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ListView\",\n  props: {\n    collection: {\n      type: String,\n      required: true\n    },\n    fields: {\n      type: Array,\n      required: true\n    }\n  },\n  setup(__props) {\n    const props = __props;\n    const { pb } = usePocketBase();\n    const search = ref(\"\");\n    const items = ref([]);\n    const filters = ref([]);\n    const router = useRouter();\n    const fetchItems = async () => {\n      EventBus.emit(\"loading\", { show: true });\n      try {\n        const query = buildQuery();\n        const records = await pb.collection(props.collection).getFullList({ filter: query });\n        items.value = records;\n      } catch (error) {\n        console.error(\"Error fetching items:\", error);\n      } finally {\n        EventBus.emit(\"loading\", { show: false });\n      }\n    };\n    const buildQuery = () => {\n      const queryParts = [];\n      if (search.value) {\n        queryParts.push(\n          visibleFields.value.map(\n            (field) => `${field.field_name} ~ \"${search.value}\"`\n          ).join(\" || \")\n        );\n      }\n      filters.value.forEach((filter) => {\n        if (filter.field && filter.condition && filter.value) {\n          switch (filter.condition) {\n            case \"equals\":\n              queryParts.push(`${filter.field} = \"${filter.value}\"`);\n              break;\n            case \"contains\":\n              queryParts.push(`${filter.field} ~ \"${filter.value}\"`);\n              break;\n            case \"starts_with\":\n              queryParts.push(`${filter.field} ~ \"^${filter.value}\"`);\n              break;\n            case \"ends_with\":\n              queryParts.push(`${filter.field} ~ \"${filter.value}$\"`);\n              break;\n          }\n        }\n      });\n      return queryParts.length > 0 ? queryParts.join(\" && \") : null;\n    };\n    const addFilter = () => {\n      filters.value.push({ field: \"\", condition: \"equals\", value: \"\" });\n    };\n    const removeFilter = (index) => {\n      filters.value.splice(index, 1);\n    };\n    const visibleFields = computed(() => props.fields.filter((field) => field.visible));\n    const route = useRoute();\n    const navigateToUpdate = (id) => {\n      const currentPath = route.path.split(\"/\")[1];\n      router.push(`/${currentPath}/form/${id}`);\n    };\n    onMounted(fetchItems);\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _withDirectives(_createElementVNode(\"input\", {\n            type: \"text\",\n            \"onUpdate:modelValue\": _cache[0] || (_cache[0] = ($event) => search.value = $event),\n            onInput: fetchItems,\n            placeholder: \"Search...\",\n            class: \"border-x border-black p-2 bg-rose-100 w-full\"\n          }, null, 544), [\n            [_vModelText, search.value]\n          ]),\n          _createElementVNode(\"button\", {\n            onClick: addFilter,\n            class: \"p-2 h-full w-auto\"\n          }, [\n            _createVNode(_unref(Icon), { icon: \"fluent:filter-add-20-filled\" })\n          ]),\n          _createElementVNode(\"button\", {\n            onClick: fetchItems,\n            class: \"border-x border-black p-2 h-full w-auto\"\n          }, [\n            _createVNode(_unref(Icon), { icon: \"carbon:query\" })\n          ])\n        ]),\n        _createElementVNode(\"div\", _hoisted_3, [\n          (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(filters.value, (filter, index) => {\n            return _openBlock(), _createElementBlock(\"div\", {\n              key: index,\n              class: \"flex border-t border-black w-full\"\n            }, [\n              _withDirectives(_createElementVNode(\"select\", {\n                \"onUpdate:modelValue\": ($event) => filter.field = $event,\n                class: \"border-r border-black p-2 bg-transparent w-full\"\n              }, [\n                _hoisted_5,\n                (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(__props.fields, (field) => {\n                  return _openBlock(), _createElementBlock(\"option\", {\n                    key: field.id,\n                    value: field.field_name\n                  }, _toDisplayString(field.field_name), 9, _hoisted_6);\n                }), 128))\n              ], 8, _hoisted_4), [\n                [_vModelSelect, filter.field]\n              ]),\n              _withDirectives(_createElementVNode(\"select\", {\n                \"onUpdate:modelValue\": ($event) => filter.condition = $event,\n                class: \"border-r border-black p-2 bg-transparent w-full\"\n              }, _hoisted_12, 8, _hoisted_7), [\n                [_vModelSelect, filter.condition]\n              ]),\n              _withDirectives(_createElementVNode(\"input\", {\n                type: \"text\",\n                \"onUpdate:modelValue\": ($event) => filter.value = $event,\n                class: \"border-r border-black p-2 bg-rose-100 w-full\"\n              }, null, 8, _hoisted_13), [\n                [_vModelText, filter.value]\n              ]),\n              _createElementVNode(\"button\", {\n                onClick: ($event) => removeFilter(index),\n                class: \"p-2 w-full hover:bg-rose-100\"\n              }, \"Remove\", 8, _hoisted_14)\n            ]);\n          }), 128))\n        ]),\n        _createElementVNode(\"table\", _hoisted_15, [\n          _createElementVNode(\"thead\", null, [\n            _createElementVNode(\"tr\", null, [\n              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(visibleFields.value, (field) => {\n                return _openBlock(), _createElementBlock(\"th\", {\n                  key: field.id,\n                  class: \"border border-black p-2 bg-rose-100\"\n                }, _toDisplayString(field.field_name.charAt(0).toUpperCase() + field.field_name.slice(1)), 1);\n              }), 128))\n            ])\n          ]),\n          _createElementVNode(\"tbody\", null, [\n            (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(items.value, (item) => {\n              return _openBlock(), _createElementBlock(\"tr\", {\n                key: item.id,\n                class: \"even:bg-rose-100\",\n                onClick: ($event) => navigateToUpdate(item.id)\n              }, [\n                (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(visibleFields.value, (field) => {\n                  return _openBlock(), _createElementBlock(\"td\", {\n                    key: field.id,\n                    class: \"border border-black p-2\"\n                  }, _toDisplayString(item[field.field_name]), 1);\n                }), 128))\n              ], 8, _hoisted_16);\n            }), 128))\n          ])\n        ])\n      ]);\n    };\n  }\n});\n",
-      "start": 1727667730601,
-      "end": 1727667730644,
+      "start": 1728383050360,
+      "end": 1728383050384,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -63,135 +63,135 @@
     },
     {
       "name": "vite:json",
-      "start": 1727667730644,
-      "end": 1727667730644,
+      "start": 1728383050384,
+      "end": 1728383050384,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1727667730644,
-      "end": 1727667730644,
+      "start": 1728383050384,
+      "end": 1728383050384,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1727667730645,
-      "end": 1727667730645,
+      "start": 1728383050384,
+      "end": 1728383050384,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1727667730645,
-      "end": 1727667730645,
+      "start": 1728383050384,
+      "end": 1728383050384,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1727667730645,
-      "end": 1727667730645,
+      "start": 1728383050384,
+      "end": 1728383050384,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1727667730645,
-      "end": 1727667730645,
+      "start": 1728383050384,
+      "end": 1728383050384,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1727667730645,
-      "end": 1727667730645,
+      "start": 1728383050384,
+      "end": 1728383050384,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1727667730645,
-      "end": 1727667730645,
+      "start": 1728383050384,
+      "end": 1728383050384,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1727667730645,
-      "end": 1727667730645,
+      "start": 1728383050384,
+      "end": 1728383050385,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1727667730645,
-      "end": 1727667730645,
+      "start": 1728383050385,
+      "end": 1728383050385,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1727667730645,
-      "end": 1727667730645,
+      "start": 1728383050385,
+      "end": 1728383050385,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1727667730645,
-      "end": 1727667730645,
+      "start": 1728383050385,
+      "end": 1728383050385,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1727667730645,
-      "end": 1727667730645,
+      "start": 1728383050385,
+      "end": 1728383050385,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1727667730645,
-      "end": 1727667730645,
+      "start": 1728383050385,
+      "end": 1728383050385,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1727667730645,
-      "end": 1727667730645,
+      "start": 1728383050385,
+      "end": 1728383050385,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1727667730645,
-      "end": 1727667730645,
+      "start": 1728383050385,
+      "end": 1728383050385,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1727667730645,
-      "end": 1727667730645,
+      "start": 1728383050385,
+      "end": 1728383050385,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1727667730646,
-      "end": 1727667730646,
+      "start": 1728383050385,
+      "end": 1728383050385,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1727667730646,
-      "end": 1727667730646,
+      "start": 1728383050385,
+      "end": 1728383050385,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1727667730646,
-      "end": 1727667730646,
+      "start": 1728383050385,
+      "end": 1728383050385,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1727667730646,
-      "end": 1727667730646,
+      "start": 1728383050385,
+      "end": 1728383050385,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { useRoute } from '#app/composables/router';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { vModelText as _vModelText, createElementVNode as _createElementVNode, withDirectives as _withDirectives, unref as _unref, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, vModelSelect as _vModelSelect, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-7efb7493\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"flex w-full h-full justify-start items-center flex-col\" };\nconst _hoisted_2 = { class: \"flex justify-start items-center w-full\" };\nconst _hoisted_3 = { class: \"flex flex-col w-full\" };\nconst _hoisted_4 = [\"onUpdate:modelValue\"];\nconst _hoisted_5 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ _createElementVNode(\"option\", {\n  disabled: \"\",\n  value: \"\"\n}, \"Select field\", -1));\nconst _hoisted_6 = [\"value\"];\nconst _hoisted_7 = [\"onUpdate:modelValue\"];\nconst _hoisted_8 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ _createElementVNode(\"option\", { value: \"equals\" }, \"Equals\", -1));\nconst _hoisted_9 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ _createElementVNode(\"option\", { value: \"contains\" }, \"Contains\", -1));\nconst _hoisted_10 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ _createElementVNode(\"option\", { value: \"starts_with\" }, \"Starts with\", -1));\nconst _hoisted_11 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ _createElementVNode(\"option\", { value: \"ends_with\" }, \"Ends with\", -1));\nconst _hoisted_12 = [\n  _hoisted_8,\n  _hoisted_9,\n  _hoisted_10,\n  _hoisted_11\n];\nconst _hoisted_13 = [\"onUpdate:modelValue\"];\nconst _hoisted_14 = [\"onClick\"];\nconst _hoisted_15 = { class: \"min-w-full border-collapse\" };\nconst _hoisted_16 = [\"onClick\"];\nimport { ref, computed, onMounted } from \"vue\";\nimport { usePocketBase } from \"~/composables/usePocketBase\";\nimport { EventBus } from \"~/event-bus.ts\";\nimport { useRouter } from \"vue-router\";\nimport { Icon } from \"@iconify/vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ListView\",\n  props: {\n    collection: {\n      type: String,\n      required: true\n    },\n    fields: {\n      type: Array,\n      required: true\n    }\n  },\n  setup(__props) {\n    const props = __props;\n    const { pb } = usePocketBase();\n    const search = ref(\"\");\n    const items = ref([]);\n    const filters = ref([]);\n    const router = useRouter();\n    const fetchItems = async () => {\n      EventBus.emit(\"loading\", { show: true });\n      try {\n        const query = buildQuery();\n        const records = await pb.collection(props.collection).getFullList({ filter: query });\n        items.value = records;\n      } catch (error) {\n        console.error(\"Error fetching items:\", error);\n      } finally {\n        EventBus.emit(\"loading\", { show: false });\n      }\n    };\n    const buildQuery = () => {\n      const queryParts = [];\n      if (search.value) {\n        queryParts.push(\n          visibleFields.value.map(\n            (field) => `${field.field_name} ~ \"${search.value}\"`\n          ).join(\" || \")\n        );\n      }\n      filters.value.forEach((filter) => {\n        if (filter.field && filter.condition && filter.value) {\n          switch (filter.condition) {\n            case \"equals\":\n              queryParts.push(`${filter.field} = \"${filter.value}\"`);\n              break;\n            case \"contains\":\n              queryParts.push(`${filter.field} ~ \"${filter.value}\"`);\n              break;\n            case \"starts_with\":\n              queryParts.push(`${filter.field} ~ \"^${filter.value}\"`);\n              break;\n            case \"ends_with\":\n              queryParts.push(`${filter.field} ~ \"${filter.value}$\"`);\n              break;\n          }\n        }\n      });\n      return queryParts.length > 0 ? queryParts.join(\" && \") : null;\n    };\n    const addFilter = () => {\n      filters.value.push({ field: \"\", condition: \"equals\", value: \"\" });\n    };\n    const removeFilter = (index) => {\n      filters.value.splice(index, 1);\n    };\n    const visibleFields = computed(() => props.fields.filter((field) => field.visible));\n    const route = useRoute();\n    const navigateToUpdate = (id) => {\n      const currentPath = route.path.split(\"/\")[1];\n      router.push(`/${currentPath}/form/${id}`);\n    };\n    onMounted(fetchItems);\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _withDirectives(_createElementVNode(\"input\", {\n            type: \"text\",\n            \"onUpdate:modelValue\": _cache[0] || (_cache[0] = ($event) => search.value = $event),\n            onInput: fetchItems,\n            placeholder: \"Search...\",\n            class: \"border-x border-black p-2 bg-rose-100 w-full\"\n          }, null, 544), [\n            [_vModelText, search.value]\n          ]),\n          _createElementVNode(\"button\", {\n            onClick: addFilter,\n            class: \"p-2 h-full w-auto\"\n          }, [\n            _createVNode(_unref(Icon), { icon: \"fluent:filter-add-20-filled\" })\n          ]),\n          _createElementVNode(\"button\", {\n            onClick: fetchItems,\n            class: \"border-x border-black p-2 h-full w-auto\"\n          }, [\n            _createVNode(_unref(Icon), { icon: \"carbon:query\" })\n          ])\n        ]),\n        _createElementVNode(\"div\", _hoisted_3, [\n          (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(filters.value, (filter, index) => {\n            return _openBlock(), _createElementBlock(\"div\", {\n              key: index,\n              class: \"flex border-t border-black w-full\"\n            }, [\n              _withDirectives(_createElementVNode(\"select\", {\n                \"onUpdate:modelValue\": ($event) => filter.field = $event,\n                class: \"border-r border-black p-2 bg-transparent w-full\"\n              }, [\n                _hoisted_5,\n                (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(__props.fields, (field) => {\n                  return _openBlock(), _createElementBlock(\"option\", {\n                    key: field.id,\n                    value: field.field_name\n                  }, _toDisplayString(field.field_name), 9, _hoisted_6);\n                }), 128))\n              ], 8, _hoisted_4), [\n                [_vModelSelect, filter.field]\n              ]),\n              _withDirectives(_createElementVNode(\"select\", {\n                \"onUpdate:modelValue\": ($event) => filter.condition = $event,\n                class: \"border-r border-black p-2 bg-transparent w-full\"\n              }, _hoisted_12, 8, _hoisted_7), [\n                [_vModelSelect, filter.condition]\n              ]),\n              _withDirectives(_createElementVNode(\"input\", {\n                type: \"text\",\n                \"onUpdate:modelValue\": ($event) => filter.value = $event,\n                class: \"border-r border-black p-2 bg-rose-100 w-full\"\n              }, null, 8, _hoisted_13), [\n                [_vModelText, filter.value]\n              ]),\n              _createElementVNode(\"button\", {\n                onClick: ($event) => removeFilter(index),\n                class: \"p-2 w-full hover:bg-rose-100\"\n              }, \"Remove\", 8, _hoisted_14)\n            ]);\n          }), 128))\n        ]),\n        _createElementVNode(\"table\", _hoisted_15, [\n          _createElementVNode(\"thead\", null, [\n            _createElementVNode(\"tr\", null, [\n              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(visibleFields.value, (field) => {\n                return _openBlock(), _createElementBlock(\"th\", {\n                  key: field.id,\n                  class: \"border border-black p-2 bg-rose-100\"\n                }, _toDisplayString(field.field_name.charAt(0).toUpperCase() + field.field_name.slice(1)), 1);\n              }), 128))\n            ])\n          ]),\n          _createElementVNode(\"tbody\", null, [\n            (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(items.value, (item) => {\n              return _openBlock(), _createElementBlock(\"tr\", {\n                key: item.id,\n                class: \"even:bg-rose-100\",\n                onClick: ($event) => navigateToUpdate(item.id)\n              }, [\n                (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(visibleFields.value, (field) => {\n                  return _openBlock(), _createElementBlock(\"td\", {\n                    key: field.id,\n                    class: \"border border-black p-2\"\n                  }, _toDisplayString(item[field.field_name]), 1);\n                }), 128))\n              ], 8, _hoisted_16);\n            }), 128))\n          ])\n        ])\n      ]);\n    };\n  }\n});\n",
-      "start": 1727667730646,
-      "end": 1727667730651,
+      "start": 1728383050385,
+      "end": 1728383050387,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -204,50 +204,50 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1727667730651,
-      "end": 1727667730651,
+      "start": 1728383050387,
+      "end": 1728383050387,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1727667730651,
-      "end": 1727667730651,
+      "start": 1728383050387,
+      "end": 1728383050387,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1727667730651,
-      "end": 1727667730651,
+      "start": 1728383050387,
+      "end": 1728383050387,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1727667730652,
-      "end": 1727667730652,
+      "start": 1728383050387,
+      "end": 1728383050387,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1727667730652,
-      "end": 1727667730652,
+      "start": 1728383050387,
+      "end": 1728383050387,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1727667730652,
-      "end": 1727667730652,
+      "start": 1728383050387,
+      "end": 1728383050387,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1727667730652,
-      "end": 1727667730652,
+      "start": 1728383050387,
+      "end": 1728383050388,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1727667730653,
-      "end": 1727667730653,
+      "start": 1728383050388,
+      "end": 1728383050388,
       "order": "normal"
     }
   ]

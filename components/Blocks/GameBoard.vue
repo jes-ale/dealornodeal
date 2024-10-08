@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full grid grid-cols-6 gap-4">
+    <div class="w-auto px-4 grid grid-cols-5 gap-2">
         <Box v-for="(box, index) in gameState.boxes" :key="index" :box="box" @select="openBox" />
     </div>
 </template>

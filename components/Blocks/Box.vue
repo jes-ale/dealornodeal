@@ -1,12 +1,11 @@
 <template>
-    <div class="p-4 rounded-lg border-2 transition-all duration-300 ease-in-out"
-        :class="[!box.opened ? 'text-black bg-gray-200 border-gray-300 hover:border-blue-500 hover:shadow-xl hover:cursor-pointer hover:bg-gray-400' : 'bg-gray-50 text-neutral-500']"
-        @click="select">
-        <div class="flex justify-center mb-2">
-            <Icon icon="mdi:briefcase" class="text-3xl" />
+    <div class="box" :class="{ opened: box.opened, success: box.success }" @click="select">
+        <div class="box-face front" :class="{ opened: box.opened }">
+            <Icon :icon="box.icon" class="text-3xl" />
         </div>
-        <p v-if="box.opened" class="text-lg font-bold text-center"> ${{ box.value }}</p>
-        <p v-else class="text-lg font-bold text-center">{{ box.id }}</p>
+        <div class="box-face back" :class="{ opened: box.opened }">
+            <Icon :icon="box.icon" class="text-3xl" />
+        </div>
     </div>
 </template>
 
@@ -32,14 +31,71 @@ function select() {
 </script>
 
 <style scoped>
-div {
-    width: 100px;
-    height: 100px;
+.box {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.box.opened {
+    transform: rotateY(180deg);
+}
+
+.box.success {
+    background-color: #c6efce;
+    border: 1px solid #3e8e41;
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.2);
+}
+
+.box-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.front {
+    background-color: #fff;
+    transform: rotateY(0deg);
+    z-index: 2;
+}
+
+.back {
+    background-color: #ccc;
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+.front.opened {
+    transform: rotateY(-180deg);
+}
+
+.back.opened {
+    transform: rotateY(0deg);
+}
+
+.box-face {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    border-radius: 0.375rem;
-    /* Tailwind's rounded-lg */
+    align-items: center;
+}
+
+.box-face p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.box.opened .front {
+    opacity: 0.5;
+}
+
+.box.opened .back {
+    opacity: 1;
 }
 </style>

@@ -4,50 +4,50 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, createVNode as _createVNode, toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-04d30417\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = [\"type\"]\n\n\nimport { Icon } from '@iconify/vue'\n\nconst buttonClass = `\n  w-16 h-16 flex flex-col items-center justify-center\n  border border-black p-2 bg-rose-700 text-white\n  hover:bg-rose-100 hover:text-rose-700 font-bold\n`\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ActionButton',\n  props: {\n    type: {\n        type: String,\n        default: 'button'\n    },\n    icon: {\n        type: String,\n        required: true\n    },\n    label: {\n        type: String,\n        required: true\n    },\n    onClick: {\n        type: Function,\n        default: () => { }\n    }\n},\n  setup(__props) {\n\nconst props = __props\n\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"button\", {\n    type: __props.type,\n    onClick: _cache[0] || (_cache[0] = \n//@ts-ignore\n(...args) => (__props.onClick && __props.onClick(...args))),\n    class: _normalizeClass(buttonClass)\n  }, [\n    _createVNode(_unref(Icon), {\n      icon: __props.icon,\n      class: \"w-full h-full\"\n    }, null, 8, [\"icon\"]),\n    _createElementVNode(\"span\", null, _toDisplayString(__props.label), 1)\n  ], 8, _hoisted_1))\n}\n}\n\n})",
-      "start": 1727667731075,
-      "end": 1727667731075
+      "start": 1728383050584,
+      "end": 1728383050584
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1727667731075,
-      "end": 1727667731075,
+      "start": 1728383050584,
+      "end": 1728383050584,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1727667731075,
-      "end": 1727667731075,
+      "start": 1728383050584,
+      "end": 1728383050584,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1727667731075,
-      "end": 1727667731075,
+      "start": 1728383050584,
+      "end": 1728383050584,
       "order": "pre"
     },
     {
       "name": "content-slot",
-      "start": 1727667731075,
-      "end": 1727667731075,
+      "start": 1728383050584,
+      "end": 1728383050584,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1727667731075,
-      "end": 1727667731075,
+      "start": 1728383050584,
+      "end": 1728383050584,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1727667731075,
-      "end": 1727667731075,
+      "start": 1728383050584,
+      "end": 1728383050584,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, createVNode as _createVNode, toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-04d30417\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = [\"type\"];\nimport { Icon } from \"@iconify/vue\";\nconst buttonClass = `\n  w-16 h-16 flex flex-col items-center justify-center\n  border border-black p-2 bg-rose-700 text-white\n  hover:bg-rose-100 hover:text-rose-700 font-bold\n`;\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ActionButton\",\n  props: {\n    type: {\n      type: String,\n      default: \"button\"\n    },\n    icon: {\n      type: String,\n      required: true\n    },\n    label: {\n      type: String,\n      required: true\n    },\n    onClick: {\n      type: Function,\n      default: () => {\n      }\n    }\n  },\n  setup(__props) {\n    const props = __props;\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"button\", {\n        type: __props.type,\n        onClick: _cache[0] || (_cache[0] = //@ts-ignore\n        (...args) => __props.onClick && __props.onClick(...args)),\n        class: _normalizeClass(buttonClass)\n      }, [\n        _createVNode(_unref(Icon), {\n          icon: __props.icon,\n          class: \"w-full h-full\"\n        }, null, 8, [\"icon\"]),\n        _createElementVNode(\"span\", null, _toDisplayString(__props.label), 1)\n      ], 8, _hoisted_1);\n    };\n  }\n});\n",
-      "start": 1727667731075,
-      "end": 1727667731160,
+      "start": 1728383050584,
+      "end": 1728383050826,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -63,182 +63,182 @@
     },
     {
       "name": "vite:json",
-      "start": 1727667731160,
-      "end": 1727667731160,
+      "start": 1728383050826,
+      "end": 1728383050826,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1727667731160,
-      "end": 1727667731160,
+      "start": 1728383050826,
+      "end": 1728383050826,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1727667731160,
-      "end": 1727667731160,
+      "start": 1728383050826,
+      "end": 1728383050826,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1727667731160,
-      "end": 1727667731160,
+      "start": 1728383050826,
+      "end": 1728383050826,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1727667731160,
-      "end": 1727667731160,
+      "start": 1728383050826,
+      "end": 1728383050826,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1727667731160,
-      "end": 1727667731160,
+      "start": 1728383050826,
+      "end": 1728383050826,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1727667731160,
-      "end": 1727667731160,
+      "start": 1728383050826,
+      "end": 1728383050826,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1727667731160,
-      "end": 1727667731160,
+      "start": 1728383050826,
+      "end": 1728383050826,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1727667731160,
-      "end": 1727667731160,
+      "start": 1728383050826,
+      "end": 1728383050827,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1727667731160,
-      "end": 1727667731160,
+      "start": 1728383050827,
+      "end": 1728383050827,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1727667731161,
-      "end": 1727667731161,
+      "start": 1728383050827,
+      "end": 1728383050827,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1727667731161,
-      "end": 1727667731161,
+      "start": 1728383050827,
+      "end": 1728383050827,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1727667731161,
-      "end": 1727667731161,
+      "start": 1728383050827,
+      "end": 1728383050827,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1727667731161,
-      "end": 1727667731161,
+      "start": 1728383050827,
+      "end": 1728383050827,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1727667731161,
-      "end": 1727667731161,
+      "start": 1728383050827,
+      "end": 1728383050827,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1727667731161,
-      "end": 1727667731161,
+      "start": 1728383050827,
+      "end": 1728383050827,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1727667731161,
-      "end": 1727667731161,
+      "start": 1728383050827,
+      "end": 1728383050827,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1727667731161,
-      "end": 1727667731161,
+      "start": 1728383050827,
+      "end": 1728383050827,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1727667731161,
-      "end": 1727667731161,
+      "start": 1728383050827,
+      "end": 1728383050827,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1727667731161,
-      "end": 1727667731161,
+      "start": 1728383050827,
+      "end": 1728383050827,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1727667731161,
-      "end": 1727667731161,
+      "start": 1728383050827,
+      "end": 1728383050827,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1727667731161,
-      "end": 1727667731164,
+      "start": 1728383050828,
+      "end": 1728383050831,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1727667731165,
-      "end": 1727667731165,
+      "start": 1728383050832,
+      "end": 1728383050832,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1727667731165,
-      "end": 1727667731165,
+      "start": 1728383050832,
+      "end": 1728383050832,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1727667731165,
-      "end": 1727667731165,
+      "start": 1728383050832,
+      "end": 1728383050832,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1727667731165,
-      "end": 1727667731165,
+      "start": 1728383050832,
+      "end": 1728383050832,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1727667731165,
-      "end": 1727667731165,
+      "start": 1728383050833,
+      "end": 1728383050833,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1727667731165,
-      "end": 1727667731165,
+      "start": 1728383050833,
+      "end": 1728383050833,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1727667731165,
-      "end": 1727667731165,
+      "start": 1728383050833,
+      "end": 1728383050833,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1727667731166,
-      "end": 1727667731166,
+      "start": 1728383050833,
+      "end": 1728383050833,
       "order": "normal"
     }
   ]
